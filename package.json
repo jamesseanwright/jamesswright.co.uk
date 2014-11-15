@@ -1,0 +1,9 @@
+{
+	"description": "James Wright's responsive, and accessible website",
+	"repository": "",
+	"readme": "",
+
+  "dependencies": {
+    "express": "^4.10.2"
+  }
+}
