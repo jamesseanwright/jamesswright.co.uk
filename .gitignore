@@ -1,6 +1,7 @@
 node_modules
 bower_components
 npm-debug.log
+log
 *.min.css
 *.min.js
 *.css.map

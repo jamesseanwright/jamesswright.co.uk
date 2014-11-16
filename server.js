@@ -8,10 +8,7 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
 app.get('/', function (req, res) {
-	res.render('index', {
-		title: 'Yo!',
-		description: "Here's the index page!"
-	});
+	res.render('index');
 });
 
 server = app.listen(3000, function () {

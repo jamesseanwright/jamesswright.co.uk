@@ -5,5 +5,10 @@
   "dependencies": {
     "express": "^4.10.2",
     "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-forever": "^0.4.5"
   }
 }
