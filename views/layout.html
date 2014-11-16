@@ -5,6 +5,24 @@
 		<title>{% block title %}James Wright{% endblock %}</title>
 	</head>
 	<body>
-		{% block content %}{% endblock %}
+		<header>
+			<hgroup>
+				<h1><a href="/">James Wright</a></h1>
+				<h2>An English geek and software developer who particularly loves C# and JavaScript</h2>
+			</hgroup>
+		</header>
+
+		<nav>
+			<ul>
+				<li><a href="/about-me">About Me</a></li>
+				<li><a href="/experience">Experience</a></li>
+				<li><a href="/projects">Projects</a></li>
+				<li><a href="/contact-me">Contact Me</a></li>
+			</ul>
+		</nav>
+
+		<section>
+			{% block content %}{% endblock %}
+		</section>
 	</body>
 </html>
