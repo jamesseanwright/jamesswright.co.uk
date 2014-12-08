@@ -13,7 +13,8 @@ module.exports = function (grunt) {
 		express: {
 			dev: {
 				options: {
-					script: 'server.js'
+					script: 'server.js',
+					node_env: 'development'
 				}
 			}
 		}
