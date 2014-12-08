@@ -1,35 +1,27 @@
 module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		
-		nodemon: {
-			app: {
-				script: 'server.js',
+		watch: {
+			express: {
+				files: ['**/*.js', 'public/stylesheets/**/*.scss', 'views/*.html'],
+				tasks: ['express:dev'],
 				options: {
-					watch: ['**/*.js', '**/public/stylesheets/**/*.scss', '**/views/*.html']
+					spawn: false
+				}
+			}
+		},
+		express: {
+			dev: {
+				options: {
+					script: 'server.js'
 				}
 			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-nodemon');
-	grunt.loadNpmTasks('grunt-concurrent');
+	grunt.loadNpmTasks('grunt-express-server');
 
-	grunt.registerTask('default', ['nodemon']);
+	grunt.registerTask('default', ['express:dev', 'watch']);
 };
 
-// concurrent: {
-// 			app: {
-// 				tasks: ['nodemon', 'watch'],
-// 				options: {
-// 					logConcurrentOutput: true
-// 				}
-// 			}
-// 		},
-// 		watch: {
-// 			src: {
-// 				files: ['**/*.js', 'public/stylesheets/**/*.scss', 'views/*.html'],
-// 				tasks: ['nodemon']
-// 			}
-// 		},
