@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express'),
 		swig = require('swig'),
 		app = express(),
@@ -13,4 +15,11 @@ app.get('/', function (req, res) {
 
 server = app.listen(3000, function () {
 	console.log('Website running on port ' + server.address().port)
+});
+
+process.on('SIGTERM', function () {
+	console.log('Ending server process...')
+	server.close(function () {
+		process.exit(0);
+	});
 });
