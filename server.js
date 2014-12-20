@@ -5,42 +5,44 @@ var express = require('express'),
 	fs = require('fs'),
 	app = express(),
 	server,
-	isDevelopment = process.env.NODE_ENV === 'development',
+	env = process.env.NODE_ENV || 'production',
 	viewDir = __dirname + '/views',
-	views = fs.readdirSync(viewDir);
+	views = fs.readdirSync(viewDir).filter(function (view) { return view.indexOf('.html') > -1; });
 
-fs.closeSync(viewDir);
+require('./utils/polyfills')();
 
 console.log('views', views);
 
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', viewDir);
-swig.setDefaults({ cache: !isDevelopment });
 
+if (env === 'development') {
+	swig.setDefaults({ 
+		cache: false
+	});
+}
 
-app.get('/:pageName', function (req, res, next) {
-	var view = views[req.params.pageName || 'index'];
-	res.render(view);
+app.get('/:viewName?', function (req, res, next) {
+	var view = (req.params.viewName || 'index') + '.html';
+
+	views.includes(view)
+		? res.render(view)
+		: next(new Error(404));
 });
 
-//404 error handler
+//Error handler
 app.use(function (err, req, res, next) {
-	err.detail === 404 ? res.render('error/404') : next(err);
-});
-
-//generic (500 for now) error handler
-app.use(function (err, req, res) {
-	res.render('error/500');
+	res.status(err.message).render('error/' + err.message);
 });
 
 server = app.listen(3000, function () {
 	console.log('Website running on port ' + server.address().port);
-	console.log('Environment: ' + process.env.NODE_ENV || 'production');
+	console.log('Environment: ' + env );
 });
 
 process.on('SIGTERM', function () {
-	console.log('Ending server process...')
+	console.log('Ending server process...');
 	server.close(function () {
 		process.exit(0);
 	});

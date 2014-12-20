@@ -2,7 +2,7 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		watch: {
-			express: {
+			dev: {
 				files: ['**/*.js', 'public/stylesheets/**/*.scss', 'views/*.html'],
 				tasks: ['express:dev'],
 				options: {
