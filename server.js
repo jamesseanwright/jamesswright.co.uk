@@ -1,24 +1,37 @@
 'use strict';
 
 var express = require('express'),
-		swig = require('swig'),
-		app = express(),
-		server,
-		isDevelopment = process.env.NODE_ENV === 'development';
+	swig = require('swig'),
+	fs = require('fs'),
+	app = express(),
+	server,
+	isDevelopment = process.env.NODE_ENV === 'development',
+	viewDir = __dirname + '/views',
+	views = fs.readdirSync(viewDir);
+
+fs.closeSync(viewDir);
+
+console.log('views', views);
 
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
-app.set('views', __dirname + '/views');
+app.set('views', viewDir);
 swig.setDefaults({ cache: !isDevelopment });
 
 
-// TODO: make routes dynamic?
-app.get('/', function (req, res) {
-	res.render('index');
+app.get('/:pageName', function (req, res, next) {
+	var view = views[req.params.pageName || 'index'];
+	res.render(view);
 });
 
-app.get('/about-me', function (req, res) {
-	res.render('about-me');
+//404 error handler
+app.use(function (err, req, res, next) {
+	err.detail === 404 ? res.render('error/404') : next(err);
+});
+
+//generic (500 for now) error handler
+app.use(function (err, req, res) {
+	res.render('error/500');
 });
 
 server = app.listen(3000, function () {
