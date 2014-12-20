@@ -3,7 +3,7 @@ module.exports = function (grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		watch: {
 			dev: {
-				files: ['**/*.js', 'public/stylesheets/**/*.scss', 'views/*.html'],
+				files: ['public/stylesheets/**/*.scss'],
 				tasks: ['express:dev'],
 				options: {
 					spawn: false
@@ -25,4 +25,3 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('default', ['express:dev', 'watch']);
 };
-

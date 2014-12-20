@@ -11,8 +11,6 @@ var express = require('express'),
 
 require('./utils/polyfills')();
 
-console.log('views', views);
-
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', viewDir);
