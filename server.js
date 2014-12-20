@@ -35,8 +35,8 @@ app.use(function (err, req, res, next) {
 });
 
 server = app.listen(3000, function () {
-	console.log('Website running on port ' + server.address().port);
-	console.log('Environment: ' + env );
+	console.log('Website running on port ' + server.address().port
+		+ '\nEnvironment: ' + env );
 });
 
 process.on('SIGTERM', function () {
