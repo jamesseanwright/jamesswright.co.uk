@@ -4,6 +4,7 @@ var should = require('should'),
 	mockViews = ['view1.html'],
 	mockReq = { params: {} },
 	mockRes = { render: function (view) {} },
+	mockRender,
 	getView;
 
 describe('the site\'s routes', function () {
@@ -20,8 +21,10 @@ describe('the site\'s routes', function () {
 
 		it('should render a valid view', function () {
 			mockReq.params.viewName = 'view1';
-			sinon.mock(mockRes).expects('render').once().withArgs(mockReq.params.viewName + '.html');
-			getView(mockReq, mockRes);
+			mockRender = sinon.mock(mockRes).expects('render').once().withArgs(mockReq.params.viewName + '.html');
+			getView(mockReq, mockRes, function() {});
+
+			mockRender.verify();
 		});
 	});
 });
