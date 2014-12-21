@@ -15,11 +15,10 @@ app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', viewDir);
 
-if (env === 'development') {
-	swig.setDefaults({ 
-		cache: false
-	});
-}
+swig.setDefaults({ 
+	cache: env === 'development'
+		? false : 'memory'
+});
 
 app.get('/:viewName?', function (req, res, next) {
 	var view = (req.params.viewName || 'index') + '.html';

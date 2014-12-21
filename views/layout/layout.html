@@ -2,17 +2,18 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>{% block title %}James Wright{% endblock %}</title>
+		<title>James Wright - {% block title %}C# and JavaScript Developer{% endblock %}</title>
 	</head>
 	<body>
 		<header>
-			<h1><a href="/">James Wright</a></h1>
+			<div><a href="/">James Wright</a></div>
 			<p>An English geek and software developer who particularly loves C# and JavaScript</p>
 		</header>
 
 		<nav role="navigation">
 			<ul>
 				<li><a href="/about-me">About Me</a></li>
+				<li><a href="/skills">Skills</a></li>
 				<li><a href="/experience">Experience</a></li>
 				<li><a href="/projects">Projects</a></li>
 				<li><a href="/blog">Blog</a></li>
@@ -21,6 +22,7 @@
 		</nav>
 
 		<section role="main">
+			<h1>{% block title %}{% endblock %}</h1>
 			{% block content %}{% endblock %}
 		</section>
 	</body>
