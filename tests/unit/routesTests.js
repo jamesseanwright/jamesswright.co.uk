@@ -56,8 +56,8 @@ describe('the site\'s routes', function () {
 			handleError = require('../../routes/handleError');
 		});
 
-		it('should render a view with the correct HTTP status for the given code', function () {
-			mockStatus = sinon.mock(mockRes).expects('status').once().withArgs(404);
+		it('should render a error view with the correct HTTP status for the given code', function () {
+			mockStatus = sinon.mock(mockRes).expects('status').once().withArgs('404').returns(mockRes);
 			mockRender = sinon.mock(mockRes).expects('render').once().withArgs('error/404.html');
 
 			handleError(new Error(404), {}, mockRes, function () {});
