@@ -1,27 +1,44 @@
 var should = require('should'),
 	sinon = require('sinon'),
 	fs = require('fs'),
+	Promise = require('promise'),
+	sinonAsPromised = require('sinon-as-promised')(Promise),
+	gitHubModel = require('../../models/gitHubModel'),
+	mockGitHubModel,
+	mockHttp,
 	mockViews = ['index.html', 'view1.html'],
 	mockReq = { params: {} },
-	mockRes = { status: function (code) {}, render: function (view) {} },
+	mockRes = { status: function (code) {}, render: function (view, data) {} },
 	mockRender,
 	mockStatus,
 	mockMiddleware = { next: function (data) {} },
 	getView,
-	handleError
+	handleError,
+	getProjects;
 
 require('../../utils/polyfills')();
 
 describe('the site\'s routes', function () {
+	afterEach(function () {
+		delete mockReq.params.viewName;
+
+		if (fs.readdirSync.restore) {
+			fs.readdirSync.restore();
+		}
+
+		if (mockRes.render.restore) {
+			mockRes.render.restore();
+		}
+		
+		if (mockRes.status.restore) {
+			mockRes.status.restore();
+		}
+	});		
+
 	describe('The getView route', function () {
 		beforeEach(function () {
 			sinon.mock(fs).expects('readdirSync').once().returns(mockViews);
 			getView = require('../../routes/getView');
-		});
-
-		afterEach(function () {
-			fs.readdirSync.restore();
-			delete mockReq.params.viewName;
 		});
 
 		it('should render a valid view', function () {
@@ -47,7 +64,6 @@ describe('the site\'s routes', function () {
 			getView(mockReq, mockRes, function () {});
 
 			mockRender.verify();
-			mockRes.render.restore();
 		});
 	});
 
@@ -64,6 +80,26 @@ describe('the site\'s routes', function () {
 
 			mockStatus.verify();
 			mockRender.verify();
+		});
+	});
+
+	describe('the getProjects route', function () {
+		beforeEach(function () {
+			getProjects = require('../../routes/getProjects');
+		});
+
+		it('should retrieve projects from the GitHub model', function (done) {
+			mockGitHubModel = sinon.mock(gitHubModel).expects('getRepos').once().resolves(['repo one', 'repo two']);
+			mockRender = sinon.mock(mockRes).expects('render').once().withArgs('projects.html', { repos: ['repo one', 'repo two'] });
+
+			mockGitHubModel().then(function (stuff) {
+				console.log('done lol');
+				mockGitHubModel.verify();
+				mockRender.verify();
+			})
+			.then(done);
+
+			getProjects({}, mockRes, function () {});
 		});
 	});
 });

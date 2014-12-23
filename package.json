@@ -5,7 +5,8 @@
   "dependencies": {
     "express": "^4.10.2",
     "swig": "^1.4.2",
-    "promise": "^6.0.1"
+    "promise": "^6.0.1",
+    "jonathan": "^1.0.2"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -14,6 +15,7 @@
     "mocha": "^2.0.1",
     "should": "^4.4.1",
     "sinon": "^1.12.2",
-    "nock": "^0.52.4"
+    "nock": "^0.52.4",
+    "sinon-as-promised": "^2.0.3"
   }
 }

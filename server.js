@@ -6,7 +6,8 @@ var express = require('express'),
 	server,
 	env = process.env.NODE_ENV || 'production',
 	getView = require('./routes/getView'),
-	handleError = require('./routes/handleError');
+	handleError = require('./routes/handleError'),
+	getProjects = require('./routes/getProjects');
 
 require('./utils/polyfills')();
 
@@ -19,6 +20,7 @@ swig.setDefaults({
 		? false : 'memory'
 });
 
+app.get('/projects', getProjects);
 app.get('/:viewName?', getView);
 app.use(handleError);
 
