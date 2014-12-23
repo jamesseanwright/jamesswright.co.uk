@@ -6,8 +6,17 @@ var Promise = require('promise'),
 module.exports = {
 	get: function (url) {
 		return new Promise(function (resolve, reject) {
-			http.get(url, resolve)
-				.on('error', reject);
+			var resData = '';
+
+			http.get(url, function (res) {
+				res.on('data', function (data) {
+					resData += data;
+				});
+
+				res.on('end', function () {
+					resolve(resData);
+				});
+			}).on('error', reject);
 		});
 	}
 };

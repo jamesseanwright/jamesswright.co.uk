@@ -1,9 +1,8 @@
 var should = require('should'),
 	sinon = require('sinon'),
-	http = require('http'),
+	nock = require('nock'),
+	handler = { callback: function (data) { } },
 	mockCallback,
-	mockData = [],
-	mockHttp,
 	httpClient;
 
 describe('the HTTP client', function () {
@@ -11,18 +10,25 @@ describe('the HTTP client', function () {
 		httpClient = require('../../utils/httpClient');
 	});
 
-	it('should return data for a requested endpoint via GET', function () {
-		mockCallback = sinon.mock({ callback: function (data) {} })
-								.expects('callback').once();
+	describe('HTTP GET', function () {
+		it('should return data for a requested endpoint via GET', function (done) {
+			nock('http://lol')
+				.get('/')
+				.reply(200, 'response body!');
 
-		mockHttp = sinon.mock(http).expects('get').once().withArgs('http://lol', mockCallback.callback).callsArg(1);
+			mockCallback = sinon.mock(handler)
+								.expects('callback')
+								.once()
+								.withArgs('response body!');
 
-		httpClient.get('http://lol')
-			.then(function () {
-				console.log('hello');
-			});
-
-		mockCallback.verify();
-		mockHttp.verify();
+			httpClient.get('http://lol')
+				.then(handler.callback)
+				.then(function () {
+					//Why can't I pass verify as a reference to then?
+					mockCallback.verify();
+				})
+				.then(done)
+				.catch(done);
+		});
 	});
 });
