@@ -89,15 +89,15 @@ describe('the site\'s routes', function () {
 		});
 
 		it('should retrieve projects from the GitHub model', function (done) {
-			mockGitHubModel = sinon.mock(gitHubModel).expects('getRepos').once().resolves(['repo one', 'repo two']);
+			//TODO: find a better way of handling promises
+			mockGitHubModel = sinon.mock(gitHubModel).expects('getRepos').twice().resolves(['repo one', 'repo two']);
 			mockRender = sinon.mock(mockRes).expects('render').once().withArgs('projects.html', { repos: ['repo one', 'repo two'] });
 
-			mockGitHubModel().then(function (stuff) {
-				console.log('done lol');
+			mockGitHubModel().then(function () {
 				mockGitHubModel.verify();
+			}).then(function () {
 				mockRender.verify();
-			})
-			.then(done);
+			}).then(done).catch(done);
 
 			getProjects({}, mockRes, function () {});
 		});
