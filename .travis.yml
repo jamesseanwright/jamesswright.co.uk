@@ -9,3 +9,4 @@ deploy:
     secure: CMTuF11s27GOLdNBFnFv3fAaymiY9Klx2oPrr3mC/gqV47myVvqvEPFidgmBkHjP/kRMMES8H0n4TquSxJ8aprgZpOlad9KW9HUJH745L2AA4rUSMZ68piEMK39Mu+iQFUTlUaRzFFSD8iDtwzvBGalkon+ZA8TtJp1UHlwePZo=
   on:
     all_branches: true
+  skip_cleanup: true
