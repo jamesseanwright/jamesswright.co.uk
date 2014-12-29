@@ -1,6 +1,4 @@
-var should = require('should'),
-	sinon = require('sinon'),
-	jonathan = require('jonathan'),
+var jonathan = require('jonathan'),
 	httpClient = require('../../utils/httpClient'),
 	mockCallback,
 	mockJonathanGet,

@@ -1,6 +1,4 @@
-var should = require('should'),
-	sinon = require('sinon'),
-	nock = require('nock'),
+var nock = require('nock'),
 	handler = { callback: function (data) { } },
 	mockCallback,
 	httpClient,

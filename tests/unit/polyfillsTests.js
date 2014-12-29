@@ -1,5 +1,4 @@
-var should = require('should'),
-	polyfills = require('../../utils/polyfills'),
+var polyfills = require('../../utils/polyfills'),
 	array = ['Bob', 'Greg'];
 
 describe('the ECMAScript 6 and 7 polyfills', function () {

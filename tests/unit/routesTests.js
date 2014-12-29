@@ -1,8 +1,4 @@
-var should = require('should'),
-	sinon = require('sinon'),
-	fs = require('fs'),
-	Promise = require('promise'),
-	sinonAsPromised = require('sinon-as-promised')(Promise),
+var fs = require('fs'),
 	gitHubModel = require('../../models/gitHubModel'),
 	mockGitHubModel,
 	mockHttp,
@@ -88,18 +84,15 @@ describe('the site\'s routes', function () {
 			getProjects = require('../../routes/getProjects');
 		});
 
-		it('should retrieve projects from the GitHub model', function (done) {
-			//TODO: find a better way of handling promises
-			mockGitHubModel = sinon.mock(gitHubModel).expects('getRepos').twice().resolves(['repo one', 'repo two']);
+		it('should retrieve projects from the GitHub model', function () {
+			mockGitHubModel = sinon.mock(gitHubModel).expects('getRepos').once().promisify(['repo one', 'repo two']);
 			mockRender = sinon.mock(mockRes).expects('render').once().withArgs('projects.html', { repos: ['repo one', 'repo two'] });
 
-			mockGitHubModel().then(function () {
-				mockGitHubModel.verify();
-			}).then(function () {
-				mockRender.verify();
-			}).then(done).catch(done);
-
 			getProjects({}, mockRes, function () {});
+
+			return mockGitHubModel.firstCall.returnValue.then(function () {
+				mockRender.verify();
+			});
 		});
 	});
 });

@@ -7,4 +7,4 @@ module.exports = function (req, res, next) {
 		.then(function (repos) {
 			res.render('projects.html', { repos: repos });
 		}).catch(next);
-};
+	};
