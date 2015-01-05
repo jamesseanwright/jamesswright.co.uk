@@ -2,32 +2,24 @@
 
 var Promise = require('promise'),
 	invalidStatusCodes = ['4', '5'],
-	http = require('http');
+	request = require('request');
 
 module.exports = {
 	get: function (url) {
 		return new Promise(function (resolve, reject) {
-			var resData = '',
-				req;
+			var payload = {
+				url: url,
+				headers: {
+					'User-Agent': 'jamesswright.co.uk'
+				}
+			}
 
-			req = http.get(url, function (res) {
-				res.on('data', function (data) {
-					resData += data;
-				});
-
-				res.on('end', function () {
-					req.end();
-					invalidStatusCodes.includes(res.statusCode.toString()[0])
-						? reject(res.statusCode)
-						: resolve(resData);
-					
-					
-				});
-			});
-
-			req.on('error', function (err) {
-				req.end();
-				reject(err.message);
+			request(payload, function (error, response, body) {
+				if (invalidStatusCodes.includes(response.statusCode.toString()[0])) {
+					reject(new Error(response.statusCode));
+				} else {
+					resolve(body);
+				}
 			});
 		});
 	}

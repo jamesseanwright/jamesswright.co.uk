@@ -11,12 +11,8 @@ describe('the HTTP client', function () {
 		httpClient = require('../../utils/httpClient');
 	});
 
-	afterEach(function () {
-		handler.callback.restore();
-	});
-
 	describe('HTTP GET', function () {
-		it('should return data for a requested endpoint via GET', function (done) {
+		it('should return data for a requested endpoint via GET', function () {
 			mockHttp = nock('http://stuff')
 				.get('/')
 				.reply(200, 'response body!');
@@ -26,56 +22,39 @@ describe('the HTTP client', function () {
 								.once()
 								.withArgs('response body!');
 
-			httpClient.get('http://stuff')
+			return httpClient.get('http://stuff')
 				.then(handler.callback)
 				.then(function () {
 					mockCallback.verify();
 				})
 				.then(function () {
 					mockHttp.isDone();
-				})
-				.then(done)
-				.catch(done);
+					handler.callback.restore();
+				});
 		});
 
-		it('should reject the promise when the response status is 404', function (done) {
-			nock('http://stuff')
+		it('should reject the promise when the response status is 404', function () {
+			mockHttp = nock('http://stuff')
 				.get('/')
 				.reply(404, 'you messed up!');
 
-			mockCallback = sinon.mock(handler)
-								.expects('callback')
-								.once()
-								.withArgs(404);
-
-			httpClient.get('http://stuff')
-				.then(null, handler.callback)
-				.then(function (err) {
-					mockCallback.verify();
-					
-				})
-				.then(done)
-				.catch(done);
+			return httpClient.get('http://stuff')
+				.catch(function (err) {
+					err.message.should.equal('404');
+					mockHttp.isDone();
+				});
 		});
 
-		it('should reject the promise when the response status is 500', function (done) {
-			nock('http://stuff')
+		it('should reject the promise when the response status is 500', function () {
+			mockHttp = nock('http://stuff')
 				.get('/')
 				.reply(500, 'we messed up!');
 
-			mockCallback = sinon.mock(handler)
-								.expects('callback')
-								.once()
-								.withArgs(500);
-
-			httpClient.get('http://stuff')
-				.then(null, handler.callback)
-				.then(function (err) {
-					mockCallback.verify();
-					
-				})
-				.then(done)
-				.catch(done);
+			return httpClient.get('http://stuff')
+				.catch(function (err) {
+					err.message.should.equal('500');
+					mockHttp.isDone();
+				});
 		});
 	});
 });

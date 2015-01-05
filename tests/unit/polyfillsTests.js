@@ -18,6 +18,5 @@ describe('the ECMAScript 6 and 7 polyfills', function () {
 			array.includes('Rob').should.be.false;
 			array.includes('Fred').should.be.false;
 		});
-
 	});
 });
