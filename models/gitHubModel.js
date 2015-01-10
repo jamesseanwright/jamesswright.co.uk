@@ -15,6 +15,11 @@ module.exports = {
 			return httpClient.get('https://api.github.com/users/jamesseanwright/repos')
 							.then(function (data) {
 								data = JSON.parse(data);
+								data = data.filter(function (repo) {
+									console.log(repo);
+									return !repo.fork;
+								});
+
 								jonathan.add(reposKey, data, (3).days);
 								return data;
 							}).catch(function (err) {
