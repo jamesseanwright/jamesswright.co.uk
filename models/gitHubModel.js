@@ -16,7 +16,6 @@ module.exports = {
 							.then(function (data) {
 								data = JSON.parse(data);
 								data = data.filter(function (repo) {
-									console.log(repo);
 									return !repo.fork;
 								});
 

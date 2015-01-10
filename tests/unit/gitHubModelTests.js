@@ -52,7 +52,6 @@ describe('the GitHub model', function () {
 		mockHttpClient = sinon.mock(httpClient).expects('get').withArgs('https://api.github.com/users/jamesseanwright/repos').once().promisify(JSON.stringify(forkedData));
 
 		return gitHubModel.getRepos().then(function (data) {
-			console.log(data);
 			data.should.be.eql(nonForkedData);
 		}).then(function () {
 			mockJonathanGet.verify();
