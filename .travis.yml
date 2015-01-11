@@ -12,4 +12,5 @@ deploy:
   skip_cleanup: true
 notifications:
   webhooks:
-    - http://james-travis-twitter.eu01.aws.af.cm/notifications
+    urls:
+      - http://james-travis-twitter.eu01.aws.af.cm/notifications
