@@ -20,6 +20,6 @@
     "chai-as-promised": "^4.1.1"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha tests --recursive"
+    "test": "./node_modules/mocha/bin/mocha tests/unit/server --recursive --require tests/unit/server/configuration"
   }
 }

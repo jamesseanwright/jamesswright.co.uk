@@ -28,7 +28,7 @@ swig.setDefaults({
 if (isDevelopment || isTest) {
 	console.log('Attaching client-tests route...');
 	app.get('/client-tests', getClientTests);
-	app.use(express.static(__dirname + '/tests/unit/client/vendor'));
+	app.use(express.static(__dirname + '/tests/unit/client'));
 }
 
 app.get('/projects', getProjects);
