@@ -9,4 +9,4 @@ module.exports = function (req, res, next) {
 	views.includes(view)
 		? res.render(view)
 		: next(new Error(404));
-}
+};
