@@ -8,20 +8,32 @@ var env = process.env.NODE_ENV || 'production';
 var getView = require('./routes/getView');
 var handleError = require('./routes/handleError');
 var getProjects = require('./routes/getProjects');
+var getClientTests = require('./routes/getClientTests');
+var isDevelopment = env === 'development';
+var isTest = env === 'test';
 
 require('./utils/polyfills')();
 
+app.use(express.static(__dirname + '/public'));
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
 swig.setDefaults({ 
-	cache: env === 'development'
-		? false : 'memory'
+	cache: isDevelopment
+		? false
+		: 'memory'
 });
+
+if (isDevelopment || isTest) {
+	console.log('Attaching client-tests route...');
+	app.get('/client-tests', getClientTests);
+	app.use(express.static(__dirname + '/tests/unit/client/vendor'));
+}
 
 app.get('/projects', getProjects);
 app.get('/:viewName?', getView);
+
 app.use(handleError);
 
 server = app.listen(3000, function () {

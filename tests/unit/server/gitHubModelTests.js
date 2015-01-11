@@ -21,7 +21,7 @@ describe('the GitHub model', function () {
 		}).then(function () {
 			//I thought verify() did this?!
 			//Turns out it doesn't, contrary to the docs.
-			//Might report this to Sinon.js chaps
+			//Might report this to the Sinon.js chaps
 			jonathan.get.restore();
 		});
 	});
