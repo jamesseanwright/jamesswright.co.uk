@@ -1,6 +1,8 @@
 language: node_js
 node_js:
 - 0.1
+notifications:
+  webhooks: http://james-travis-twitter.eu01.aws.af.cm/notifications
 deploy:
   provider: appfog
   email: jamesseanwright@gmail.com
@@ -10,5 +12,3 @@ deploy:
   on:
     all_branches: true
   skip_cleanup: true
-notifications:
-  webhooks: http://james-travis-twitter.eu01.aws.af.cm/notifications
