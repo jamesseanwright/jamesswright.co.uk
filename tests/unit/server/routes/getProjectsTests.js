@@ -1,5 +1,5 @@
-var getProjects = require('../../../routes/getProjects');
-var gitHubModel = require('../../../models/gitHubModel');
+var getProjects = require('../../../../routes/getProjects');
+var gitHubModel = require('../../../../models/gitHubModel');
 var fakeRes = { status: function (code) {}, render: function (view, data) {} };
 
 describe('the getProjects route', function () {

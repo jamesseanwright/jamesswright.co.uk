@@ -8,7 +8,7 @@ var mockRender;
 
 describe('The getView route', function () {
 	sinon.stub(fs, 'readdirSync').returns(fakeViews);
-	getView = require('../../../routes/getView');
+	getView = require('../../../../routes/getView');
 
 	after(function () {
 		fs.readdirSync.restore();

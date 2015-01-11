@@ -1,5 +1,5 @@
 var jonathan = require('jonathan');
-var httpClient = require('../../utils/httpClient');
+var httpClient = require('../../../utils/httpClient');
 var mockHttpClient;
 var mockJonathanGet;
 var mockJonathanAdd;
@@ -8,7 +8,7 @@ var gitHubModel;
 
 describe('the GitHub model', function () {
 	beforeEach(function () {
-		gitHubModel = require('../../models/gitHubModel');
+		gitHubModel = require('../../../models/gitHubModel');
 	});
 
 	it('should return a parsed list of GitHub repos from Jonathan if possible', function () {

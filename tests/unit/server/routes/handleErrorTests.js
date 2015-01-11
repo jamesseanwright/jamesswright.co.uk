@@ -1,4 +1,4 @@
-var handleError = require('../../../routes/handleError');
+var handleError = require('../../../../routes/handleError');
 var fakeRes = { status: function (code) {}, render: function (view, data) {} };
 var mockRender;
 

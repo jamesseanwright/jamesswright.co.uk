@@ -4,11 +4,11 @@ var mockCallback;
 var httpClient;
 var fakeHttp;
 
-require('../../utils/polyfills')();
+require('../../../utils/polyfills')();
 
 describe('the HTTP client', function () {
 	beforeEach(function () {
-		httpClient = require('../../utils/httpClient');
+		httpClient = require('../../../utils/httpClient');
 	});
 
 	describe('HTTP GET', function () {
