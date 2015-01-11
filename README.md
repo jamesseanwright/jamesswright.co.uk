@@ -4,3 +4,6 @@ My new website, written in NodeJS and ExpressJS. It will be responsive, accessib
 
 ## Development environment
 [AppFog](http://jameswright.eu01.aws.af.cm/)
+
+## Unit tests
+Both the client-side and server-side unit tests can be ran with `npm test`. Be sure to run `npm i` and `bower i` first.
