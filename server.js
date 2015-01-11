@@ -8,7 +8,6 @@ var env = process.env.NODE_ENV || 'production';
 var getView = require('./routes/getView');
 var handleError = require('./routes/handleError');
 var getProjects = require('./routes/getProjects');
-var getClientTests = require('./routes/getClientTests');
 var isDevelopment = env === 'development';
 var isTest = env === 'test';
 
