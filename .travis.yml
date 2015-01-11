@@ -10,3 +10,6 @@ deploy:
   on:
     all_branches: true
   skip_cleanup: true
+notifications:
+  webhooks:
+    - http://james-travis-twitter.eu01.aws.af.cm/notifications
