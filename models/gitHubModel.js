@@ -1,9 +1,9 @@
 'use strict';
 
-var Promise = require('promise'),
-	jonathan = require('jonathan'),
-	httpClient = require('../utils/httpClient'),
-	reposKey = 'repos';
+var Promise = require('promise');
+var jonathan = require('jonathan');
+var httpClient = require('../utils/httpClient');
+var reposKey = 'repos';
 
 module.exports = {
 	getRepos: function () {
@@ -13,17 +13,17 @@ module.exports = {
 			return Promise.resolve(repos);
 		} else {
 			return httpClient.get('https://api.github.com/users/jamesseanwright/repos')
-							.then(function (data) {
-								data = JSON.parse(data);
-								data = data.filter(function (repo) {
-									return !repo.fork;
-								});
+				.then(function (data) {
+					data = JSON.parse(data);
+					data = data.filter(function (repo) {
+						return !repo.fork;
+					});
 
-								jonathan.add(reposKey, data, (3).days);
-								return data;
-							}).catch(function (err) {
-								throw err;
-							});
+					jonathan.add(reposKey, data, (3).days);
+					return data;
+				}).catch(function (err) {
+					throw err;
+				});
 		}
 	}
 };

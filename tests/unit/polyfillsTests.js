@@ -1,5 +1,5 @@
-var polyfills = require('../../utils/polyfills'),
-	array = ['Bob', 'Greg'];
+var polyfills = require('../../utils/polyfills');
+var array = ['Bob', 'Greg'];
 
 describe('the ECMAScript 6 and 7 polyfills', function () {
 	describe('the Array.prototype.includes polyfill', function () {

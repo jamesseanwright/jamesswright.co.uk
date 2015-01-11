@@ -1,8 +1,8 @@
-var nock = require('nock'),
-	handler = { callback: function (data) { } },
-	mockCallback,
-	httpClient,
-	mockHttp;
+var nock = require('nock');
+var handler = { callback: function (data) { } };
+var mockCallback;
+var httpClient;
+var fakeHttp;
 
 require('../../utils/polyfills')();
 
@@ -13,7 +13,7 @@ describe('the HTTP client', function () {
 
 	describe('HTTP GET', function () {
 		it('should return data for a requested endpoint via GET', function () {
-			mockHttp = nock('http://stuff')
+			fakeHttp = nock('http://stuff')
 				.get('/')
 				.reply(200, 'response body!');
 
@@ -28,32 +28,32 @@ describe('the HTTP client', function () {
 					mockCallback.verify();
 				})
 				.then(function () {
-					mockHttp.isDone();
+					fakeHttp.isDone();
 					handler.callback.restore();
 				});
 		});
 
 		it('should reject the promise when the response status is 404', function () {
-			mockHttp = nock('http://stuff')
+			fakeHttp = nock('http://stuff')
 				.get('/')
 				.reply(404, 'you messed up!');
 
 			return httpClient.get('http://stuff')
 				.catch(function (err) {
 					err.message.should.equal('404');
-					mockHttp.isDone();
+					fakeHttp.isDone();
 				});
 		});
 
 		it('should reject the promise when the response status is 500', function () {
-			mockHttp = nock('http://stuff')
+			fakeHttp = nock('http://stuff')
 				.get('/')
 				.reply(500, 'we messed up!');
 
 			return httpClient.get('http://stuff')
 				.catch(function (err) {
 					err.message.should.equal('500');
-					mockHttp.isDone();
+					fakeHttp.isDone();
 				});
 		});
 	});

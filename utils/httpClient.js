@@ -1,8 +1,8 @@
 'use strict';
 
-var Promise = require('promise'),
-	invalidStatusCodes = ['4', '5'],
-	request = require('request');
+var Promise = require('promise');
+var invalidStatusCodes = ['4', '5'];
+var request = require('request');
 
 module.exports = {
 	get: function (url) {

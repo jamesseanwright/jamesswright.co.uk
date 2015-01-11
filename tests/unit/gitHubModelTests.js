@@ -1,11 +1,10 @@
-var jonathan = require('jonathan'),
-	httpClient = require('../../utils/httpClient'),
-	mockHttpClient,
-	mockCallback,
-	mockJonathanGet,
-	mockJonathanAdd,
-	mockData = [ 'repo1', 'repo2' ],
-	gitHubModel;
+var jonathan = require('jonathan');
+var httpClient = require('../../utils/httpClient');
+var mockHttpClient;
+var mockJonathanGet;
+var mockJonathanAdd;
+var mockData = [ 'repo1', 'repo2' ];
+var gitHubModel;
 
 describe('the GitHub model', function () {
 	beforeEach(function () {
@@ -21,6 +20,8 @@ describe('the GitHub model', function () {
 			mockJonathanGet.verify();
 		}).then(function () {
 			//I thought verify() did this?!
+			//Turns out it doesn't, contrary to the docs.
+			//Might report this to Sinon.js chaps
 			jonathan.get.restore();
 		});
 	});

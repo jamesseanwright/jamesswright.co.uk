@@ -1,7 +1,7 @@
-var chai = require('chai'),
-	chaiAsPromised = require('chai-as-promised'),
-	sinon = require('sinon'),
-	Promise = require('promise');
+var chai = require('chai');
+var chaiAsPromised = require('chai-as-promised');
+var sinon = require('sinon');
+var Promise = require('promise');
 
 global.chai = chai;
 global.sinon = sinon;

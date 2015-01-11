@@ -1,13 +1,13 @@
 'use strict';
 
-var express = require('express'),
-	swig = require('swig'),
-	app = express(),
-	server,
-	env = process.env.NODE_ENV || 'production',
-	getView = require('./routes/getView'),
-	handleError = require('./routes/handleError'),
-	getProjects = require('./routes/getProjects');
+var express = require('express');
+var swig = require('swig');
+var app = express();
+var server;
+var env = process.env.NODE_ENV || 'production';
+var getView = require('./routes/getView');
+var handleError = require('./routes/handleError');
+var getProjects = require('./routes/getProjects');
 
 require('./utils/polyfills')();
 
