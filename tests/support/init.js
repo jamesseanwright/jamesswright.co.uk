@@ -7,7 +7,8 @@ global.chai = chai;
 global.sinon = sinon;
 global.Promise = Promise;
 
-//hack because sinon-as-promised won't permit waiting for wrapped promises
+//hack because sinon-as-promised won't permit waiting
+//for wrapped promises in a fluent manner
 sinon.stub.promisify = function (data, err) {
 	this.returns(new Promise(function (resolve, reject) {
 		if (data && !err) {
