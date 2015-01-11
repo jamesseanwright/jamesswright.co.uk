@@ -25,12 +25,6 @@ swig.setDefaults({
 		: 'memory'
 });
 
-if (isDevelopment || isTest) {
-	console.log('Attaching client-tests route...');
-	app.get('/client-tests', getClientTests);
-	app.use(express.static(__dirname + '/tests/unit/client'));
-}
-
 app.get('/projects', getProjects);
 app.get('/:viewName?', getView);
 

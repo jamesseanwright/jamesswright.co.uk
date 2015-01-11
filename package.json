@@ -10,16 +10,18 @@
     "swig": "^1.4.2"
   },
   "devDependencies": {
+    "chai": "^1.10.0",
+    "chai-as-promised": "^4.1.1",
     "grunt": "^0.4.5",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-express-server": "^0.4.19",
     "mocha": "^2.0.1",
-    "sinon": "^1.12.2",
+    "mocha-phantomjs": "^3.5.2",
     "nock": "^0.52.4",
-    "chai": "^1.10.0",
-    "chai-as-promised": "^4.1.1"
+    "phantomjs": "^1.9.13",
+    "sinon": "^1.12.2"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha tests/unit/server --recursive --require tests/unit/server/configuration"
+    "test": "./node_modules/mocha/bin/mocha tests/unit/server --recursive --require tests/unit/server/configuration && node_modules/mocha-phantomjs/bin/mocha-phantomjs tests/unit/client/index.html"
   }
 }
