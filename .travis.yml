@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - 0.1
 notifications:
-  webhooks: http://james-travis-twitter.aws.af.cm/notifications
+  webhooks: http://james-travis-twitter.aws.af.cm/
 deploy:
   provider: appfog
   email: jamesseanwright@gmail.com
