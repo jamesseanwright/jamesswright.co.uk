@@ -1,7 +1,10 @@
 language: node_js
 node_js:
-- 0.1
-before_install: npm install -g grunt-cli
+  - 0.1
+before_install:
+  - npm install -g grunt-cli
+  - npm install -g bower
+  - bower i
 notifications:
   webhooks: http://james-travis-twitter.aws.af.cm/
 deploy:
