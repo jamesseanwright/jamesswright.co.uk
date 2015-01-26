@@ -14,7 +14,28 @@ module.exports = function (grunt) {
 			dev: {
 				options: {
 					script: 'server.js',
-					node_env: 'development'
+					node_env: 'development',
+				}
+			},
+			test: {
+				options: {
+					script: 'tests/testserver.js',
+					node_env: 'test',
+				}
+			}
+		},
+		mochaTest: {
+			test: {
+				options: {
+					reporter: 'spec'
+				},
+				src: ['tests/unit/server/**/*.js']
+			}
+		},
+		mocha_phantomjs: {
+			all: {
+				options: {
+					urls: ['http://localhost:3001']
 				}
 			}
 		}
@@ -22,6 +43,9 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-express-server');
+	grunt.loadNpmTasks('grunt-mocha-test');
+	grunt.loadNpmTasks('grunt-mocha-phantomjs');
 
 	grunt.registerTask('default', ['express:dev', 'watch']);
+	grunt.registerTask('test', ['mochaTest', 'express:test', 'mocha_phantomjs']);
 };

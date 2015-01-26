@@ -9,7 +9,6 @@ var getView = require('./routes/getView');
 var handleError = require('./routes/handleError');
 var getProjects = require('./routes/getProjects');
 var isDevelopment = env === 'development';
-var isTest = env === 'test';
 
 require('./utils/polyfills')();
 
@@ -29,7 +28,7 @@ app.get('/:viewName?', getView);
 
 app.use(handleError);
 
-server = app.listen(3000, function () {
+server = app.listen(process.env.PORT || 3000, function () {
 	console.log('Website running on port ' + server.address().port
 		+ '\nEnvironment: ' + env);
 });
