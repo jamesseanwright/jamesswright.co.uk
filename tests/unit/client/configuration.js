@@ -6,24 +6,27 @@
 	window.should = chai.should;
 	chai.should();
 
-	runTests([
-		'firstTest.js'
-	]);
+	window.importScript = function (src) {
+		var script = document.createElement('script');
+		script.src = src;
+		document.body.appendChild(script);
+	};
 
 	function runTests(tests) {
-		var script;
 		var run = window.mochaPhantomJS
 			? window.mochaPhantomJS.run
 			: mocha.run;
 
 		tests.forEach(function (testScript, i) {
-			script = document.createElement('script');
-			script.src = testScript;
-			document.body.appendChild(script);
+			importScript(testScript);
 
 			if (i === tests.length - 1) {
 				setTimeout(run, 100);
 			}
 		});
 	}
+
+	runTests([
+		'firstTest.js'
+	]);
 }());
