@@ -8,7 +8,7 @@ require('../../../utils/polyfills')();
 
 describe('the HTTP client', function () {
 	beforeEach(function () {
-		httpClient = require('../../../utils/httpClient');
+		httpClient = require('../../../data/httpClient');
 	});
 
 	describe('HTTP GET', function () {
