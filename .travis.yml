@@ -5,8 +5,6 @@ before_install:
   - npm install -g grunt-cli
   - npm install -g bower
   - bower i
-notifications:
-  webhooks: http://james-travis-twitter.aws.af.cm/
 deploy:
   provider: appfog
   email: jamesseanwright@gmail.com
