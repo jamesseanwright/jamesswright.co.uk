@@ -8,8 +8,6 @@ var env = process.env.NODE_ENV || 'production';
 var getView = require('./routes/getView');
 var handleError = require('./routes/handleError');
 var getProjects = require('./routes/getProjects');
-var getExperience = require('./routes/getExperience');
-var setLinkedInAuthCode = require('./routes/setLinkedInAuthCode');
 var isDevelopment = env === 'development';
 
 require('./init')();
@@ -26,8 +24,6 @@ swig.setDefaults({
 });
 
 app.get('/projects', getProjects);
-app.get('/experience', getExperience);
-app.get('/linkedin-callback', setLinkedInAuthCode);
 app.get('/:viewName?', getView);
 
 app.use(handleError);
