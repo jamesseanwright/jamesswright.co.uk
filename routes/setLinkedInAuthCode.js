@@ -1,6 +1,13 @@
 'use strict';
 
 module.exports = function (req, res, next) {
-	process.env.LINKEDIN_OAUTH_CODE = req.params.code;
-	res.redirect(301, '/');
+	console.log('here!');
+
+	if (req.query.state !== process.env.LINKEDIN_STATE) {
+		next(new Error(401));
+		return;
+	}
+
+	process.env.LINKEDIN_OAUTH_CODE = req.query.code;
+	res.redirect(301, '/experience');
 };
