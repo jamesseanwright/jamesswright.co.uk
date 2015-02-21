@@ -8,7 +8,7 @@
 {% for repo in repos %}
 	{% if loop.first %}<ul>{% endif %}
 		<li>
-			<h3><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a></h3>
+			<h3><a href="{{ repo.url }}">{{ repo.name }}</a></h3>
 			<p>{{ repo.language }}</p>
 			<p>{{ repo.description }}</p>
 		</li>

@@ -1,6 +1,6 @@
 'use strict';
 
-var gitHubModel = require('../models/gitHubModel');
+var gitHubModel = require('../models/gitHub');
 
 module.exports = function (req, res, next) {
 	gitHubModel.getRepos()
