@@ -10,7 +10,7 @@ var handleError = require('./routes/handleError');
 var getProjects = require('./routes/getProjects');
 var isDevelopment = env === 'development';
 
-require('./utils/polyfills')();
+require('./init')();
 
 app.use(express.static(__dirname + '/public'));
 app.engine('html', swig.renderFile);

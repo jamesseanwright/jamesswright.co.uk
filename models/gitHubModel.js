@@ -1,6 +1,5 @@
 'use strict';
 
-var Promise = require('promise');
 var jonathan = require('jonathan');
 var httpClient = require('../data/httpClient');
 var reposKey = 'repos';
