@@ -1,5 +1,5 @@
 var jonathan = require('jonathan');
-var httpClient = require('../../../utils/httpClient');
+var httpClient = require('../../../data/httpClient');
 var mockHttpClient;
 var mockJonathanGet;
 var mockJonathanAdd;
