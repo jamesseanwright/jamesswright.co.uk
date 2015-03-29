@@ -3,17 +3,30 @@ var gitHubModel = require('../../../../models/gitHub');
 var fakeRes = { status: function (code) {}, render: function (view, data) {} };
 
 describe('the getProjects route', function () {
+	afterEach(function () {
+		fakeRes.render.restore();
+		gitHubModel.getRepos.restore();
+		gitHubModel.getForks.restore();
+	});
+
 	it('should retrieve projects from the GitHub model', function () {
-		var mockGitHubModel = sinon.mock(gitHubModel).expects('getRepos').once().promisify(['repo one', 'repo two']);
-		var mockRender = sinon.mock(fakeRes).expects('render').once().withArgs('projects.html', { repos: ['repo one', 'repo two'] });
+		sinon.stub(gitHubModel, 'getRepos')
+			.returns(Promise.resolve(['repo one']));
 
-		getProjects({}, fakeRes, function () {});
+		sinon.stub(gitHubModel, 'getForks')
+			.returns(Promise.resolve(['fork one']));
 
-		return mockGitHubModel.firstCall.returnValue.then(function () {
-			mockRender.verify();
-			mockGitHubModel.verify();
-			fakeRes.render.restore();
-			gitHubModel.getRepos.restore();
-		});
+		var mockRender = sinon.mock(fakeRes)
+			.expects('render')
+			.once()
+			.withArgs('projects.html', { 
+				repos: ['repo one'],
+				forks: ['fork one']
+			});
+
+		return getProjects({}, fakeRes, function () {})
+			.then(function () {
+				mockRender.verify();
+			});
 	});
 });

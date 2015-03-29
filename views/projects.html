@@ -5,6 +5,7 @@
 {% block content %}
 <p>Powered by GitHub</p>
 
+<h3>Projects</h3>
 {% for repo in repos %}
 	{% if loop.first %}<ul>{% endif %}
 		<li>
@@ -13,7 +14,19 @@
 			<p>{{ repo.description }}</p>
 		</li>
 	{% if loop.last %}</ul>{% endif %}
+{% endfor %}
 
+<button>Show More</button>
+
+<h3>Open-source contributions and forks</h3>
+{% for fork in forks %}
+	{% if loop.first %}<ul>{% endif %}
+		<li>
+			<h3><a href="{{ fork.url }}">{{ fork.name }}</a></h3>
+			<p>{{ fork.language }}</p>
+			<p>{{ fork.description }}</p>
+		</li>
+	{% if loop.last %}</ul>{% endif %}
 {% endfor %}
 
 {% endblock %}

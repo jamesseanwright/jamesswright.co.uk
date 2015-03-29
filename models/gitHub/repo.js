@@ -1,15 +1,15 @@
 'use strict';
 
 module.exports = function (data) {
-	Object.defineProperty(this, 'url', {
-		get: function () {
-			return data.html_url;
-		}
-	});
-
 	Object.defineProperty(this, 'name', {
 		get: function () {
 			return data.name;
+		}
+	});
+
+	Object.defineProperty(this, 'url', {
+		get: function () {
+			return data.html_url;
 		}
 	});
 
