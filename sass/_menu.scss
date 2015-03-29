@@ -2,6 +2,7 @@
 	@include material-shadow;
 	margin-top: 0;
 	margin-bottom: 10px;
+	background: white;
 
 	.menu__show {
 		width: 100%;
@@ -21,19 +22,21 @@
 	}
 
 	@include respond-min($m) {
-		overflow: hidden;
-
 		.menu__show {
 			display: none;
 		}
 
 		.menu__items {
-			display: block;
+			display: table;
 			list-style-type: none;
+			width: 100%;
+			padding: 0;
 		}
 
 		.menu__item {
-			float: left;
+			display: table-cell;
+			width: 12.5%;
+			text-align: center;
 		}
 	}
 
