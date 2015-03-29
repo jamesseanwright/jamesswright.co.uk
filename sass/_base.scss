@@ -8,3 +8,7 @@ $l: 901px;
 		@content;
 	}
 }
+
+@mixin material-shadow {
+	box-shadow: 0 0 10px #CCC;
+}
