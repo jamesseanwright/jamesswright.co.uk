@@ -2,16 +2,20 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>James Wright - {% block title %}C# and JavaScript Developer{% endblock %}</title>
+		<link rel="stylesheet" href="stylesheets/main.css" />
 	</head>
 	<body>
 		<header>
-			<p><a href="/">James Wright</a></p>
+			<h1><a href="/">James Wright</a></h1>
 			<p>An English geek and software developer who particularly loves C# and JavaScript</p>
 		</header>
 
-		<nav role="navigation">
-			<ul>
+		<nav role="navigation" class="menu">
+			<button class="menu__show">Menu</button>
+
+			<ul class="menu__items">
 				<li><a href="/about-me">About Me</a></li>
 				<li><a href="/skills">Skills</a></li>
 				<li><a href="/experience">Experience</a></li>
@@ -22,7 +26,6 @@
 		</nav>
 
 		<section role="main">
-			<h1>{% block title %}{% endblock %}</h1>
 			{% block content %}{% endblock %}
 		</section>
 

@@ -1,0 +1,10 @@
+// breakpoints
+$s: 321px;
+$m: 601px;
+$l: 901px;
+
+@mixin respond-min($width) {
+	@media(min-width: $width) {
+		@content;
+	}
+}

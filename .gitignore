@@ -6,3 +6,5 @@ log
 *.min.css
 *.min.js
 *.css.map
+.sass-cache/
+public/stylesheets/

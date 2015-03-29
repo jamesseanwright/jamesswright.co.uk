@@ -1,0 +1,31 @@
+.menu {
+	.menu__show {
+		width: 100%;
+		font-size: 1.3rem;
+	}
+
+	.menu__items {
+		display: none;
+	}
+
+	@include respond-min($m) {
+		.menu__show {
+			display: none;
+		}
+
+		.menu__items {
+			display: block;
+		}
+	}
+
+	/*margin: 0 auto;
+	overflow: hidden;
+
+	ul {
+		list-style-type: none;
+
+		li {
+			float: left;
+		}
+	}*/
+}
