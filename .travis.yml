@@ -5,6 +5,9 @@ before_install:
   - npm install -g grunt-cli
   - npm install -g bower
   - bower i
+after_install:
+  - gem install sass --no-ri --no-rdoc
+  - grunt sass
 deploy:
   provider: appfog
   email: jamesseanwright@gmail.com
