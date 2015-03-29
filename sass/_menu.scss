@@ -1,7 +1,19 @@
 .menu {
+	@include material-shadow;
+	margin-top: 0;
+	margin-bottom: 10px;
+
 	.menu__show {
 		width: 100%;
 		font-size: 1.3rem;
+		border: 0;
+		background: #00CDCD;
+		cursor: pointer;
+		color: white;
+
+		&:hover {
+			background: #00EEEE;
+		}
 	}
 
 	.menu__items {
@@ -9,12 +21,19 @@
 	}
 
 	@include respond-min($m) {
+		overflow: hidden;
+
 		.menu__show {
 			display: none;
 		}
 
 		.menu__items {
 			display: block;
+			list-style-type: none;
+		}
+
+		.menu__item {
+			float: left;
 		}
 	}
 

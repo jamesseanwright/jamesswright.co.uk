@@ -10,28 +10,32 @@
     font-style: normal;
 }
 
+* {
+	box-sizing: border-box;
+}
+
 html, body {
 	margin: 0;
 	font-family: 'cm_sans_serif_2012medium', sans-serif;
+	background: #E0EEEE;
 
-	@include respond-min($m) {
-		background: #E0EEEE;
-	}
+	padding: 0 2%;
 
 	@include respond-min($l) {
 		font-size: 1.1em;
 	}
 }
 
-h2 {
-
-}
-
 header {
+	@include material-shadow;
+
 	background: #008080;
 	padding: 10px 20px;
 	color: white;
 	text-align: center;
+	margin-bottom: 10px;
+	margin-left: -5%;
+	margin-right: -5%;
 
 	h1 {
 		margin-top: 0;
@@ -60,19 +64,10 @@ header {
 			font-size: 1.3rem;
 		}
 	}
-
-	@include respond-min($m) {
-		@include material-shadow;
-	}
 }
 
 section[role="main"] {
+	@include material-shadow;
 	padding: 10px;
-
-	@include respond-min($m) {
-		margin: 0 auto;
-		width: 90%;
-		background: white;
-		@include material-shadow;
-	}
+	background: white;
 }
