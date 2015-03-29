@@ -31,6 +31,14 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+		uglify: {
+			dist: {
+				screwIE8: true,
+				files: {
+					'public/javascripts/main.min.js': ['clientjs/**/*.js']
+				}
+			}
+		},
 		mochaTest: {
 			test: {
 				options: {
@@ -49,11 +57,12 @@ module.exports = function (grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-express-server');
 	grunt.loadNpmTasks('grunt-mocha-test');
 	grunt.loadNpmTasks('grunt-mocha-phantomjs');
 
-	grunt.registerTask('default', ['sass', 'express:dev', 'watch']);
+	grunt.registerTask('default', ['sass', 'uglify', 'express:dev', 'watch']);
 	grunt.registerTask('test', ['mochaTest', 'express:test', 'mocha_phantomjs']);
 };
