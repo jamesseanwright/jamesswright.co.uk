@@ -25,6 +25,8 @@
     "sinon": "^1.12.2"
   },
   "scripts": {
-    "test": "grunt test"
+    "pretest": "npm install -g grunt-cli && npm install -g bower && bower i",
+    "test": "grunt test",
+    "posttest": "gem install sass --no-ri --no-rdoc && grunt sass"
   }
 }

@@ -1,13 +1,6 @@
 language: node_js
 node_js:
   - 0.1
-before_install:
-  - npm install -g grunt-cli
-  - npm install -g bower
-  - bower i
-install:
-  - gem install sass --no-ri --no-rdoc
-  - grunt sass
 deploy:
   provider: appfog
   email: jamesseanwright@gmail.com
