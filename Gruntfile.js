@@ -3,8 +3,8 @@ module.exports = function (grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		watch: {
 			dev: {
-				files: ['sass/**'],
-				tasks: ['sass', 'express:dev'],
+				files: ['sass/**', 'clientjs/**'],
+				tasks: ['sass', 'uglify', 'express:dev'],
 				options: {
 					spawn: false
 				}
