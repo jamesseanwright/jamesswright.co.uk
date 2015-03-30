@@ -12,6 +12,11 @@
 		document.body.appendChild(script);
 	};
 
+	window.scratchpad = document.querySelector('.scratchpad');
+
+	//disable analytics
+	delete window['GoogleAnalyticsObject'];
+
 	function runTests(tests) {
 		var run = window.mochaPhantomJS
 			? window.mochaPhantomJS.run
@@ -27,6 +32,6 @@
 	}
 
 	runTests([
-		'firstTest.js'
+		'menuTests.js'
 	]);
 }());
