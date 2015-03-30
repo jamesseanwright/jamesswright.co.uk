@@ -12,3 +12,25 @@ $l: 901px;
 @mixin material-shadow {
 	box-shadow: 0 0 10px #CCC;
 }
+
+@mixin clearfix {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+section[role="main"].no-material {
+	box-shadow: none;
+	background: transparent;
+	padding: 0;
+}
+
+.material-container {
+	@include material-shadow;
+	background: white;
+	padding: 5px 10px;
+}
+
+img {
+	border: 0;
+}

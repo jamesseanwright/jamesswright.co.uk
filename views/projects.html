@@ -1,33 +1,27 @@
+{% import 'macros/repo-list.html' as repoList %}
+
 {% extends 'layout/layout.html' %}
 
 {% block title %}Projects{% endblock %}
+{% block mainClasses %}no-material{% endblock %}
 
 {% block content %}
-<h2>Projects</h2>
-<p>Powered by GitHub</p>
+
+<div class="material-container">
+	<h2>Projects</h2>
+	<div class="strapline">
+		<p>Powered by <a href="https://github.com"><img src="/images/github.png" alt="GitHub logo" /></a></p>
+	</div>
+</div>
 
 <h3>Personal projects</h3>
-{% for repo in repos %}
-	{% if loop.first %}<ul>{% endif %}
-		<li>
-			<h3><a href="{{ repo.url }}">{{ repo.name }}</a></h3>
-			<p>{{ repo.language }}</p>
-			<p>{{ repo.description }}</p>
-		</li>
-	{% if loop.last %}</ul>{% endif %}
-{% endfor %}
-
-<button>Show More</button>
+{{
+	repoList.render(repos)
+}}
 
 <h3>Open-source contributions and forks</h3>
-{% for fork in forks %}
-	{% if loop.first %}<ul>{% endif %}
-		<li>
-			<h3><a href="{{ fork.url }}">{{ fork.name }}</a></h3>
-			<p>{{ fork.language }}</p>
-			<p>{{ fork.description }}</p>
-		</li>
-	{% if loop.last %}</ul>{% endif %}
-{% endfor %}
+{{
+	repoList.render(forks)
+}}
 
 {% endblock %}
