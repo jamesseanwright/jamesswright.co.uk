@@ -1,0 +1,16 @@
+{% macro render(repos) %}
+	{% for repo in repos %}
+		{% if loop.first %}
+			<ul class="repo-list">
+		{% endif %}
+			<li class="repo-list__item">
+				<h3 class="repo-list__item-name">{{ repo.name }}</h3>
+				<p>{{ repo.language }}</p>
+				<p>{{ repo.description }}</p>
+				<p><a href="{{ repo.url }}">Go to project</a></p>
+			</li>
+		{% if loop.last %}</ul>{% endif %}
+	{% endfor %}
+
+	<p class="repo-list__github-link"><a href="https://github.com/jamesseanwright">More projects at GitHub</a></p>
+{% endmacro %}
