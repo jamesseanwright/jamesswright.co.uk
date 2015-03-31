@@ -1,8 +1,8 @@
 language: node_js
 node_js:
   - 0.1
-install: "./pre-test.sh"
-after_success: "./post-test.sh && ./build-dist.sh && cd dist && pwd"
+install: "./build-scripts/pre-test.sh"
+after_success: "./build-scripts/post-test.sh && ./build-scripts/build-dist.sh && cd dist && pwd"
 deploy:
   provider: appfog
   email: jamesseanwright@gmail.com

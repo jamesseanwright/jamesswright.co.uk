@@ -6,4 +6,4 @@ My new website, written in Node.js and Express. It will be responsive, accessibl
 [AppFog](http://jameswright.eu01.aws.af.cm/)
 
 ## Unit tests
-Both the client-side and server-side unit tests can be run with `grunt test`. The `npm test` command is currently reserved for my CI process, although this may eventually be improved.
+Both the client-side and server-side unit tests can be run with `npm test`. You'll need to run `npm i` and `bower i` first, plus `npm -g grunt-cli`. 
