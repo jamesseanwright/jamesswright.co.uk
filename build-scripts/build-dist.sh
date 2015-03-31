@@ -11,6 +11,5 @@ cp -R models/ dist/
 cp -R public/ dist/
 rm -R dist/public/vendor/ 
 cp -R routes/ dist/
-cp -R sass/ dist/
 cp -R utils/ dist/
 cp -R views/ dist/
