@@ -28,6 +28,6 @@
   "scripts": {
     "pretest": "npm install -g grunt-cli && npm install -g bower && bower i && grunt uglify",
     "test": "grunt test",
-    "posttest": "gem install sass --no-ri --no-rdoc && grunt sass && ./build-dist && cd dist"
+    "posttest": "gem install sass --no-ri --no-rdoc && grunt sass && ./build-dist.sh && cd dist"
   }
 }
