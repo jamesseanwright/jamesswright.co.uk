@@ -8,3 +8,4 @@ log
 *.css.map
 .sass-cache/
 public/stylesheets/
+dist/
