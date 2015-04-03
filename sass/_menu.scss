@@ -1,7 +1,7 @@
 .menu {
 	@include material-shadow;
 	margin-top: 0;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 	position: relative;
 
 	.menu__show {
@@ -27,12 +27,12 @@
 		margin: 0;
 		padding: 0;
 		max-height: 0;
-		-webkit-transition: max-height 500ms;
-		transition: max-height 500ms;
+		-webkit-transition: max-height 500ms cubic-bezier(0, 1.4, 0, 1);
+		transition: max-height 500ms cubic-bezier(0, 1.4, 1, 1);
 	}
 
 	.menu__items--active {
-		max-height: 336px;
+		max-height: 302px;
 	}
 
 	.menu__item {
@@ -43,7 +43,11 @@
 			height: 100%;
 			display: inline-block;
 			line-height: 42px;
-			padding-left: 10px;
+			padding-left: 20px;
+		}
+
+		&:last-child {
+			margin-bottom: 60px;
 		}
 	}
 

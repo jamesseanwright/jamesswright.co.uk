@@ -20,7 +20,13 @@ app.set('views', __dirname + '/views');
 swig.setDefaults({ 
 	cache: isDevelopment
 		? false
-		: 'memory'
+		: 'memory',
+
+	locals: {
+		currentYear: function () {
+			return new Date().getFullYear();
+		}
+	}
 });
 
 app.get('/projects', getProjects);
