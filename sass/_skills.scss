@@ -1,0 +1,18 @@
+.skills-list {
+	@include clearfix;
+	list-style-type: none;
+	margin: 0 -10px;
+	padding: 0;
+	width: 100%;
+
+	.skills-list__item {
+		@include material-shadow;
+		@include content;
+		float: left;
+		margin: 5px;
+
+		@include respond-min($m) {
+			margin: 10px;
+		}
+	}
+}
