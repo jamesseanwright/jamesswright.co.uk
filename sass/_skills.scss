@@ -1,9 +1,13 @@
 .skills-list {
 	@include clearfix;
 	list-style-type: none;
-	margin: 0 -10px;
+	margin: 0 -5px;
 	padding: 0;
 	width: 100%;
+
+	@include respond-min($m) {
+		margin: 0 -10px;
+	}
 
 	.skills-list__item {
 		@include material-shadow;
