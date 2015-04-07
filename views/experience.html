@@ -1,97 +1,135 @@
 {% extends 'layout/layout.html' %}
 
 {% block title %}Experience{% endblock %}
+{% block mainClasses %}no-material{% endblock %}
 
 {% block content %}
-<h2>Experience</h2>
+<div class="material-container">
+	<h2>Experience</h2>
+</div>
 
-<h3>Employment History</h3>
-<table>
-	<tr>
-		<th>Company</th>
-		<th>Role</th>
-		<th>Dates Employed</th>
-		<th>Description</th>
-	</tr>
+<article class="timeline">
+	<section class="timeline__year">
+		<h3 class="timeline__year-label">Present</h3>
+		<ul class="timeline__items">
+			<li class="timeline__item">
+				<h4 class="timeline__item-title">Software Developer - Sky News</h4>
+				<p>Sky plc</p>
+				<span class="timeline__item-start-date">October 2014</span> - <span class="timeline__item-present">Present</span>
 
-	<tr>
-		<td>Sky</td>
-		<td>Software Developer - Sky News</td>
-		<td>October 2014 - Present</td>
-		<td>Maintaining and developing features for the responsive and accessible Sky News website using Node.js. The traffic-heavy website takes advantage of load balancing and caching to ensure 100% uptime. Test-driven development has been used within this position, and pair programming is commonplace.</td>
-	</tr>
+				<div class="timeline__item-description">
+					<p>Maintaining and developing features for the responsive and accessible Sky News website using Node.js. The traffic-heavy website takes advantage of load balancing and caching to ensure 100% uptime. Test-driven development has been used within this position, and pair programming is commonplace.</p>
+				</div>
+			</li>
+		</ul>
+	</section>
 
-	<tr>
-		<td>Sky</td>
-		<td>Software Developer - NOW TV</td>
-		<td>July 2014 - October 2014</td>
-		<td>
-			<p>Continuing my work in the Microsoft team, undertaking WinJS (HTML5 and JavaScript) development for NOW TV's Windows 8.1 app. Other technologies used include Sass, Grunt, and Git.</p>
+	<section class="timeline__year">
+		<h3 class="timeline__year-label">2014</h3>
 
-			<p>Within this role I have developed and documented a UI automation test suite for our app using Selenium WebDriver, SpecFlow (a .NET port of Cucumber), and a custom fork of RainbowDriver, a Selenium JSON Wire protocol implementation written in JavaScript and Node.js.</p>
-		</td>
-	</tr>
+		<ul class="timeline__items">
+			<li class="timeline__item">
+				<h4 class="timeline__item-title">Software Developer - NOW TV</h4>
+				<p>Sky plc</p>
+				<span class="timeline__item-start-date">July 2014</span> - <span class="timeline__item-end-date">October 2014</span>
 
-	<tr>
-		<td>Sky</td>
-		<td>Associate Software Developer</td>
-		<td>July 2012 - July 2014</td>
-		<td>
-			<p>Developing software using Agile methodologies such as Scrum and Extreme Programming (XP). Test-Driven Development (TDD) has been prominent within this role and a variety of technologies and frameworks have been used.</p>
+				<div class="timeline__item-description">
+					<p>Continuing my work in the Microsoft team, undertaking WinJS (HTML5 and JavaScript) development for NOW TV's Windows 8.1 app. Other technologies used include Sass, Grunt, and Git.</p>
 
-			<p>Since January 2013, I have been in NOW TV's Microsoft development team with a focus on the Xbox 360 client. The application is developed in C# using the Xbox Application Development Kit (ADK/Lakeview), a framework based upon Silverlight. Responsibilities extend to communicating with various scrums and non-technical teams and liaising with Microsoft during the app's submission, certification, and release.</p>
+					<p>Within this role I have developed and documented a UI automation test suite for our app using Selenium WebDriver, SpecFlow (a .NET port of Cucumber), and a custom fork of RainbowDriver, a Selenium JSON Wire protocol implementation written in JavaScript and Node.js.</p>
+				</div>
+			</li>
 
-			<p>I have assisted with Sky's software engineering graduate scheme, having partaken in speed meetings with potential applicants, marking unattended coding tests and rating candidates on technical ability during assessment days.</p>
-		</td>
-	</tr>
+			<li class="timeline__item">
+				<h4 class="timeline__item-title">Associate Software Developer</h4>
+				<p>Sky plc</p>
+				<span class="timeline__item-start-date">July 2012</span> - <span class="timeline__item-end-date">July 2014</span>
 
-	<tr>
-		<td>Self-employed</td>
-		<td>Freelance Web and Software Developer</td>
-		<td>July 2011 - August 2012</td>
-		<td>
-			Designing, implementing, and testing websites and software, such as Content Management Systems, around clients' requirements.
-		</td>
-	</tr>
+				<div class="timeline__item-description">
+					<p>Developing software using Agile methodologies such as Scrum and Extreme Programming (XP). Test-Driven Development (TDD) has been prominent within this role and a variety of technologies and frameworks have been used.</p>
 
-	<tr>
-		<td>Educastream</td>
-		<td>Online English Tutor</td>
-		<td>May 2011 - September 2011</td>
-		<td>
-			Teaching English to French children, teenagers, and adults via video conferencing. Lessons were prepared by the company, including a script relating to the presentation shown on screen. Adult students were also permitted to provide their own materials, such as newspaper articles, for linguistic analysis and discussion.
-		</td>
-	</tr>
+					<p>For the most part, I was an app developer in NOW TV's Microsoft development team with a focus on the Xbox 360 client. The application is developed in C# using the Xbox Application Development Kit (ADK/Lakeview), a framework based upon Silverlight.</p>
+				</div>
+			</li>
+		</ul>
+	</section>
 
-	<tr>
-		<td>Collège Molière (L'Aigle, France)</td>
-		<td>English Teaching Assistant</td>
-		<td>October 2010 - April 2011</td>
-		<td>
-			Teaching English to French secondary school students, aged 11-15. Usually, groups of up to 14 pupils were taught for 30-minute sessions surrounding various subjects of cultural and linguistic interest.
-		</td>
-	</tr>
-</table>
+	<section class="timeline__year">
+		<h3 class="timeline__year-label">2012</h3>
 
-<h3>Education</h3>
+		<ul class="timeline__items">
+			<li class="timeline__item">
+				<h4 class="timeline__item-title">BA (Hons) Computer Science and French, 2.1</h4>
+				<p>University of Chester</p>
+				<span class="timeline__item-start-date">2008</span> - <span class="timeline__item-end-date">2012</span>
+			</li>
 
-<table>
-	<tr>
-		<th>Institution</th>
-		<th>Qualification</th>
-		<th>Class year</th>
-	</tr>
+			<li class="timeline__item">
+				<h4 class="timeline__item-title">Freelance Web and Software Developer</h4>
+				<p>Self-employed</p>
+				<span class="timeline__item-start-date">July 2011</span> - <span class="timeline__item-end-date">August 2012</span>
 
-	<tr>
-		<td>University of Chester</td>
-		<td>BA (Hons) Computer Science and French, 2.1</td>
-		<td>2012</td>
-	</tr>
+				<div class="timeline__item-description">
+					<p>Designing, implementing, and testing websites and software, such as Content Management Systems, around clients' requirements.</p>
+				</div>
+			</li>
+		</ul>
+	</section>
 
-	<tr>
-		<td>Baines Sixth Form</td>
-		<td>A Levels, IT, French, and Music Technology</td>
-		<td>2012</td>
-	</tr>
-</table>
+	<section class="timeline__year">
+		<h3 class="timeline__year-label">2011</h3>
+
+		<ul class="timeline__items">
+			<li class="timeline__item">
+				<h4 class="timeline__item-title">Online English Tutor</h4>
+				<p>Educastream</p>
+				<span class="timeline__item-start-date">May 2011</span> - <span class="timeline__item-end-date">September 2011</span>
+
+				<div class="timeline__item-description">
+					<p>Teaching English to French children, teenagers, and adults via video conferencing. Lessons were prepared by the company, including a script relating to the presentation shown on screen. Adult students were also permitted to provide their own materials, such as newspaper articles, for linguistic analysis and discussion.</p>
+				</div>
+			</li>
+
+			<li class="timeline__item">
+				<h4 class="timeline__item-title">English Teaching Assistant</h4>
+				<p>Collège Molière (L'Aigle, France)</p>
+				<span class="timeline__item-start-date">October 2010</span> - <span class="timeline__item-end-date">April 2011</span>
+
+				<div class="timeline__item-description">
+					<p>Teaching English to French secondary school students, aged 11-15. Usually, groups of up to 14 pupils were taught for 30-minute sessions surrounding various subjects of cultural and linguistic interest.</p>
+				</div>
+			</li>
+		</ul>
+	</section>
+
+	<section class="timeline__year">
+		<h3 class="timeline__year-label">2010</h3>
+
+		<ul class="timeline__items">
+			<li class="timeline__item">
+				<h4 class="timeline__item-title">Junior Web Developer (Work-Based Learning placement)</h4>
+				<p>rECOrd LRC</p>
+				<span class="timeline__item-start-date">May 2010</span> - <span class="timeline__item-end-date">June 2010</span>
+
+				<div class="timeline__item-description">
+					<p>Utilising ASP.NET, C#, and MS SQL, results returned by the organisation's search engine were limited to user-specific locations, defined in coordinates by administration via a content management system.</p>
+				</div>
+			</li>
+		</ul>
+	</section>
+
+	<section class="timeline__year">
+		<h3 class="timeline__year-label">2008</h3>
+
+		<ul class="timeline__items">
+			<li class="timeline__item">
+				<h4 class="timeline__item-title">A-Levels: ICT, French, and Music Technology</h4>
+				<p>Baines Sixth Form</p>
+				<span class="timeline__item-start-date">2006</span> - <span class="timeline__item-end-date">2008</span>
+			</li>
+		</ul>
+	</section>
+
+	<p class="timeline__external-link"><a href="https://linkedin.com/in/jamesswrightweb">Full CV on LinkedIn</a></p>
+</article>
 {% endblock %}
