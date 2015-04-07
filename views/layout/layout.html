@@ -6,7 +6,18 @@
 		<title>James Wright - {% block title %}Software Developer{% endblock %}</title>
 		<link rel="stylesheet" href="stylesheets/main.css" />
 	</head>
+	<!--[if gte IE 9]>
+		<body class="no-ie">
+	<![endif]-->
+	<!--[if !IE]> -->
 	<body>
+	<!--[endif]-->
+		<!--[if gte IE 9]>
+			<div class="no-ie__message">
+				<h1>No.</h1>
+				<p>I may be a Microsoft fanboy, but I'm not willing make this site compatible with older versions of IE. Either upgrade to IE 10/11 or use a decent browser such as Chrome.</p>
+			</div>
+		<![endif]-->
 		<header>
 			<h1>James Wright</h1>
 			<p>An English techie and software developer who particularly loves C# and JavaScript</p>
