@@ -2,8 +2,9 @@
 
 My new website, written in Node.js and Express. It will be responsive, accessible, and marked up semantically.
 
-## Development environment
-[AppFog](http://jameswright.eu01.aws.af.cm/)
+## Environments
+* [Development](http://jameswright.eu01.aws.af.cm/)
+* [Production (beta)](http://beta.jamesswright.co.uk/)
 
 ## Unit tests
 Both the client-side and server-side unit tests can be run with `npm test`. You'll need to run `npm i` and `bower i` first, plus `npm -g grunt-cli`. 
