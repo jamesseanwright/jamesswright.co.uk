@@ -4,6 +4,15 @@
 	margin-top: 0;
 	padding: 0;
 	width: 100%;
+	margin-bottom: 0;
+
+	.repo-list__item-name {
+		margin-top: 5px;
+
+		@include respond-min($m) {
+			margin-top: 20px;
+		}
+	}
 
 	.repo-list__item {
 		@include material-shadow;
@@ -27,7 +36,7 @@
 			display: list-item; // show all items again
 			float: left;
 			width: calc(50% - 10px);
-			height: 260px;
+			height: 320px;
 			margin: 10px;
 
 			&:first-child {
@@ -60,18 +69,12 @@
 	}
 }
 
-.repo-list__github-link {
+.repo-list__more-link {
 	@include material-shadow;
 	background: white;
 	display: block;
 	margin: 0;
-	padding: 0;
-
-	a {
-		padding: 10px;
-		display: inline-block;
-		width: 100%;
-	}
+	padding: 10px;
 
 	@include respond-min($m) {
 		display: none;

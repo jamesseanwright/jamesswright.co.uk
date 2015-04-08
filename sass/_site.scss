@@ -21,6 +21,10 @@ html, body {
 
 	padding: 0 2%;
 
+	@include respond-min($m) {
+		font-size: 1.08em;
+	}
+
 	@include respond-min($l) {
 		font-size: 1.1em;
 	}
@@ -42,7 +46,7 @@ header {
 		margin-bottom: 20px;
 
 		@include respond-min($m) {
-			font-size: 5.5rem;
+			font-size: 4.7rem;
 		}
 		
 		@include respond-min($l) {

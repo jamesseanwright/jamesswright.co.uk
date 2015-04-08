@@ -51,14 +51,13 @@
 		}
 	}
 
-	@include respond-min($m) {
+	@include respond-min($l) {
 		.menu__show {
 			display: none;
 		}
 
 		.menu__items {
 			display: table;
-			table-layout: fixed;
 			position: static;
 			width: 100%;
 			padding: 0;
@@ -68,6 +67,11 @@
 			padding: 0;
 			display: table-cell;
 			text-align: center;
+			border-right: 1px solid $background;
+
+			&:last-child {
+				border-right: 0;
+			}
 
 			a {
 				padding-left: 0;

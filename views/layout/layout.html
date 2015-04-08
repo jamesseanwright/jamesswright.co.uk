@@ -6,16 +6,11 @@
 		<title>James Wright - {% block title %}Software Developer{% endblock %}</title>
 		<link rel="stylesheet" href="stylesheets/main.css" />
 	</head>
-	<!--[if gte IE 9]>
-		<body class="no-ie">
-	<![endif]-->
-	<!--[if !IE]> -->
 	<body>
-	<!--[endif]-->
-		<!--[if gte IE 9]>
+		<!--[if lte IE 9]>
 			<div class="no-ie__message">
-				<h1>No.</h1>
-				<p>I may be a Microsoft fanboy, but I'm not willing make this site compatible with older versions of IE. Either upgrade to IE 10/11 or use a decent browser such as Chrome.</p>
+				<h2>No.</h2>
+				<p>I may be a Microsoft fanboy, but I'm not willing to make this site compatible with older versions of IE. Either upgrade to IE 10/11 or use a decent browser such as Chrome.</p>
 			</div>
 		<![endif]-->
 		<header>
@@ -24,7 +19,7 @@
 		</header>
 
 		<nav role="navigation" class="menu">
-			<button class="menu__show">Menu</button>
+			<button class="menu__show" aria-hidden="true">Menu</button>
 
 			<ul class="menu__items">
 				<li class="menu__item"><a href="/">Home</a></li>

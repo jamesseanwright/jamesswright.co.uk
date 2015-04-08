@@ -8,7 +8,14 @@
 	}
 
 	.footer__copyright {
-		margin-right: 10px;
+		display: block;
+		margin-bottom: 10px;
+
+		@include respond-min($m) {
+			display: inline-block;
+			margin-bottom: 0;
+			margin-right: 10px;
+		}
 	}
 	
 }
