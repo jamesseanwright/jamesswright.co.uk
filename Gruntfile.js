@@ -31,6 +31,13 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+		cssmin: {
+			target: {
+				files: {
+					'public/stylesheets/main.min.css': 'public/stylesheets/main.css'
+				}
+			}
+		},
 		uglify: {
 			dist: {
 				screwIE8: true,
@@ -58,11 +65,12 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-express-server');
 	grunt.loadNpmTasks('grunt-mocha-test');
 	grunt.loadNpmTasks('grunt-mocha-phantomjs');
 
-	grunt.registerTask('default', ['sass', 'uglify', 'express:dev', 'watch']);
+	grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'express:dev', 'watch']);
 	grunt.registerTask('test', ['mochaTest', 'express:test', 'mocha_phantomjs']);
 };

@@ -1,2 +1,2 @@
 #!/bin/bash
-gem install sass --no-ri --no-rdoc && grunt sass
+gem install sass --no-ri --no-rdoc && grunt sass && grunt cssmin
