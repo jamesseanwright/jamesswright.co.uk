@@ -5,6 +5,17 @@ var fs = require('fs');
 var Showdown = require('showdown');
 var converter = new Showdown.converter();
 
+function convert(file, posts) {
+	fs.readFile(file, function (err, content) {
+		if (err) {
+			next(err);
+			return;
+		}
+
+		posts.push(converter.makeHtml(content.toString()));
+	});
+}
+
 module.exports = function (req, res, next) {
 	var posts = [];
 
@@ -15,20 +26,13 @@ module.exports = function (req, res, next) {
 		}
 
 		files.forEach(function (file, i) {
-			fs.readFile(file, function (err, content) {
-				console.log(content);
+			convert(file, posts);
 
-				if (err) {
-					next(err);
-					return;
-				}
-
-				posts.push(converter.makeHtml(content));
-				
-				if (i === files.length - 1) {
-					res.send(posts);
-				}
-			});
+			if (i === files.length - 1) {
+				res.render('blog.html', {
+					posts: posts
+				});
+			}
 		});
 	});
 };

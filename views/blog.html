@@ -1,9 +1,16 @@
 {% extends 'layout/layout.html' %}
 
 {% block title %}About Me{% endblock %}
+{% block mainClasses %}no-material{% endblock %}
 
 {% block content %}
-<h2>Blog</h2>
+	<h2>Blog</h2>
 
-<p>I'm in the process of writing a Markdown-driven, semantic, and accessible blog that will essentially reside here. For now, you can find my existing Tumblr blog <a href="http://jamesseanwright.tumblr.com" target="_blank">here</a>.</p>
+	{% for post in posts %}
+		{% if loop.first %}<ul>{% endif %}
+
+		<li>{{ post|safe }}<li>
+
+		{% if loop.last %}</ul>{% endif %}
+	{% endfor %}
 {% endblock %}
