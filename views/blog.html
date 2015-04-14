@@ -1,15 +1,15 @@
 {% extends 'layout/layout.html' %}
 
-{% block title %}About Me{% endblock %}
+{% block title %}Blog{% endblock %}
 {% block mainClasses %}no-material{% endblock %}
 
 {% block content %}
 	<h2>Blog</h2>
 
 	{% for post in posts %}
-		{% if loop.first %}<ul>{% endif %}
+		{% if loop.first %}<ul class="blog-posts">{% endif %}
 
-		<li>{{ post|safe }}<li>
+		<li class="blog-posts__post">{{ post|safe }}</li>
 
 		{% if loop.last %}</ul>{% endif %}
 	{% endfor %}
