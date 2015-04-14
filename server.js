@@ -5,9 +5,10 @@ var swig = require('swig');
 var app = express();
 var server;
 var env = process.env.NODE_ENV || 'production';
+var getBlog = require('./routes/getBlog');
+var getProjects = require('./routes/getProjects');
 var getView = require('./routes/getView');
 var handleError = require('./routes/handleError');
-var getProjects = require('./routes/getProjects');
 var isDevelopment = env === 'development';
 
 require('./init')();
@@ -30,6 +31,7 @@ swig.setDefaults({
 });
 
 app.get('/projects', getProjects);
+app.get('/blog/:slug?', getBlog);
 app.get('/:viewName?', getView);
 
 app.use(handleError);
