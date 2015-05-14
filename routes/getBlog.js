@@ -68,7 +68,9 @@ module.exports = function (req, res, next) {
 			return;
 		}
 
-		if (!isAllPosts) {
+		files.reverse(); // latest first
+
+		if (isAllPosts) {
 			files = files.slice(pageNumber, pageNumber + POSTS_PER_PAGE);
 		}
 

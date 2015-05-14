@@ -4,7 +4,7 @@ module.exports = function (grunt) {
 		watch: {
 			dev: {
 				files: ['sass/**', 'clientjs/**'],
-				tasks: ['sass', 'uglify', 'express:dev'],
+				tasks: ['sass', 'cssmin', 'uglify', 'express:dev'],
 				options: {
 					spawn: false
 				}

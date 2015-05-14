@@ -4,5 +4,6 @@
 
 	.blog-posts__post {
 		@extend .material-container;
+		margin-bottom: 20px;
 	}
 }
