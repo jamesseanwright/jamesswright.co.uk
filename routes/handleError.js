@@ -10,5 +10,9 @@ module.exports = function (err, req, res, next) {
 	var targetView = err.message + '.html';
 	var hasTarget = errorViews.includes(targetView);
 
+	if (process.env.NODE_ENV === 'development') {
+		console.error(err);
+	}
+
 	res.status(err.message || 500).render('error/' + (hasTarget ? targetView : 'all.html'));
 }

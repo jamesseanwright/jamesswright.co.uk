@@ -34,13 +34,23 @@ function getCacheKey(slug) {
 	return base + '-' + slug;
 }
 
-function render(res, posts, page) {
-	var isPaginated = posts.length === 1;
 
+// because Swig can only iterate over arrays and object keys
+function createPages(totalPages) {
+	var pages = [];
+
+	for (var i = 1; i < totalPages.length; i++) {
+		pages.push[i];
+	}
+
+	return i;
+}
+
+function render(res, options) {
 	res.render('blog.html', {
-		posts: posts,
-		page: isPaginated ? page : null,
-		totalPages: isPaginated ? POSTS_PER_PAGE : null
+		posts: options.posts,
+		page: options.page ? options.page : null,
+		totalPages: options.totalPages ? createPages(options.totalPages) : null
 	});
 }
 
@@ -51,9 +61,10 @@ module.exports = function (req, res, next) {
 	var isAllPosts = key === 'posts';
 	var posts = jonathan.get(key);
 	var promises = [];
+	var isPaginated = false;
 
 	if (posts) {
-		render(res, posts);
+		render(res, { posts: posts });
 		return;
 	}
 
@@ -71,6 +82,7 @@ module.exports = function (req, res, next) {
 		files.reverse(); // latest first
 
 		if (isAllPosts) {
+			isPaginated = files.length > POSTS_PER_PAGE;
 			files = files.slice(pageNumber, pageNumber + POSTS_PER_PAGE);
 		}
 
@@ -80,7 +92,12 @@ module.exports = function (req, res, next) {
 
 		Promise.all(promises).then(function (markdowns) {
 			jonathan.add(key, markdowns, (60).minutes);
-			render(res, markdowns);
+			render(res, {
+				posts: markdowns, 
+				isPaginated: isPaginated,
+				page: 1,
+				totalPages: 2
+			});
 		}).catch(next);
 	});
 };

@@ -4,7 +4,7 @@
 
 If you aren’t familiar with [Travis CI](https://travis-ci.org/), you really ought to check it out. It’s a hosted continuous integration service that’s ridiculously easy to configure, can connect to your GitHub repositories with a single click, and supports a plethora of languages.
 
-As I was developing my [new responsive site](https://github.com/jamesseanwright/jamesswright.co.uk), I thought it would be cool to tweet build notifications from my techie Twitter account, [@jamesswrightweb](https://twitter.com/jamesswrightweb). After familiarising myself with Travis [webhooks](http://docs.travis-ci.com/user/notifications/#Webhook-notification), I wrote a Node.js server that will receive said notifications and post build results to Twitter; the imaginatively named [Twitter Webhook for Travis CI](https://github.com/jamesseanwright/travis-twitter-webhook).
+As I was developing my [new responsive site](https://github.com/jamesseanwright/jamesswright.co.uk), I thought it would be cool to tweet build notifications from my techie Twitter account, [@jamesseanwright](https://twitter.com/jamesseanwright). After familiarising myself with Travis [webhooks](http://docs.travis-ci.com/user/notifications/#Webhook-notification), I wrote a Node.js server that will receive said notifications and post build results to Twitter; the imaginatively named [Twitter Webhook for Travis CI](https://github.com/jamesseanwright/travis-twitter-webhook).
 
 Setting it up is fairly straightforward using the provided README: create a Twitter app, authorise it against your Twitter account, host the server, configure the API keys, and make Travis aware of the webhook.
 

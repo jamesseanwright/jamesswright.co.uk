@@ -1,10 +1,18 @@
 {% extends 'layout/layout.html' %}
 
+{% import 'macros/pagination.html' as pagination %}
+
 {% block title %}Blog{% endblock %}
 {% block mainClasses %}no-material{% endblock %}
 
 {% block content %}
 	<h2>Blog</h2>
+
+	{{ page }} / {{ totalPages }}
+
+	{% if page && totalPages %}
+		{{ pagination.render(page, totalPages) }}
+	{% endif %}
 
 	{% for post in posts %}
 		{% if loop.first %}<ul class="blog-posts">{% endif %}
@@ -13,4 +21,8 @@
 
 		{% if loop.last %}</ul>{% endif %}
 	{% endfor %}
+
+	{% if page && totalPages %}
+		{{ pagination.render(page, totalPages) }}
+	{% endif %}
 {% endblock %}
