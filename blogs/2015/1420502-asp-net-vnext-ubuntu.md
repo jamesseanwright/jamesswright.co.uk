@@ -1,7 +1,6 @@
-### [Running ASP.NET vNext on Ubuntu](/blog/1420502-asp-net-vnext-ubuntu)
+## [Running ASP.NET vNext on Ubuntu](/blog/1420502-asp-net-vnext-ubuntu)
 
 <time datetime="2015-01-06">6th January 2015</time>
-
 
 ![Developing ASP.NET vNext on Ubuntu](https://pbs.twimg.com/media/B6hJzO2IQAEiZ7D.png:large)
 

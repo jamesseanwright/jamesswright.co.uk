@@ -6,6 +6,7 @@ var app = express();
 var server;
 var env = process.env.NODE_ENV || 'production';
 var getBlog = require('./routes/getBlog');
+var getBlogPost = require('./routes/getBlogPost');
 var getProjects = require('./routes/getProjects');
 var getView = require('./routes/getView');
 var handleError = require('./routes/handleError');
@@ -31,7 +32,8 @@ swig.setDefaults({
 });
 
 app.get('/projects', getProjects);
-app.get('/blog/:slug?', getBlog);
+app.get('/blog', getBlog);
+app.get('/blog/:slug', getBlogPost);
 app.get('/:viewName?', getView);
 
 app.use(handleError);

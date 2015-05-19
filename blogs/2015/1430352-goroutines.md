@@ -1,4 +1,4 @@
-### [Code Snippet - Goroutines](/blog/1430352-goroutines)
+## [Code Snippet - Goroutines](/blog/1430352-goroutines)
 
 <time datetime="2015-05-30">30th April 2015</time>
 

@@ -1,4 +1,4 @@
-### ['Implementing AppFog' by Matthew Nohr and Isaac Rabinovitch](/blog/1396569-implementing-appfog)
+## ['Implementing AppFog' by Matthew Nohr and Isaac Rabinovitch](/blog/1396569-implementing-appfog)
 
 <time datetime="2014-04-04">4th April 2014</time>
 

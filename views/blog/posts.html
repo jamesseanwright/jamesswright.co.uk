@@ -1,0 +1,11 @@
+{% import '../macros/blog-list.html' as blogList %}
+{% extends '../layout/layout.html' %}
+
+{% block title %}Blog{% endblock %}
+{% block mainClasses %}no-material{% endblock %}
+
+{% block content %}
+	<h2>Blog</h2>
+
+	{{ blogList.render(posts) }}
+{% endblock %}

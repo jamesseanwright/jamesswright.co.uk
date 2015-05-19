@@ -1,4 +1,4 @@
-{% macro render(posts, options) %}
+{% macro render(posts) %}
 	{% for post in posts %}
 		{% if loop.first %}
 			<ul class="material-grid">
@@ -6,8 +6,10 @@
 			<li class="material-grid__item">
 				<h4 class="material-grid__item-name">{{ post.title }}</h4>
 
-				<p aria-label="Written in {{ post.language }}">{{ post.date }}</p>
-				<a href="{{ post.url }}">Go to project</a>
+				<p>{{ post.date }}</p>
+
+				<p>{{ post.description }}</p>
+				<a href="/blog/{{ post.slug }}">Read post</a>
 			</li>
 		{% if loop.last %}</ul>{% endif %}
 	{% endfor %}

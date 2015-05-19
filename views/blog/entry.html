@@ -1,0 +1,8 @@
+{% extends '../layout/layout.html' %}
+
+{% block title %}{{ postTitle }}{% endblock %}
+
+{% block content %}
+	<a href="/blog">Back to blog</a>
+	<article class="blog-post">{{ post|safe }}</article>
+{% endblock %}

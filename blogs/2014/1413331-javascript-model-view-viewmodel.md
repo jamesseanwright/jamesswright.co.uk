@@ -1,4 +1,4 @@
-### [Code Snippet - Model-View-ViewModel pattern in JavaScript](/blog/1413331-javascript-model-view-viewmodel)
+## [Code Snippet - Model-View-ViewModel pattern in JavaScript](/blog/1413331-javascript-model-view-viewmodel)
 
 <time datetime="2014-10-15">15th October 2014</time>
 
