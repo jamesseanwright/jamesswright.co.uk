@@ -10,13 +10,25 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'roadstar';
+	src: url("/fonts/ktf-roadstar-webfont.eot");
+	src: url("/fonts/ktf-roadstar-webfont.eot?#iefix") format("embedded-opentype"),
+		 url("/fonts/ktf-roadstar-webfont.woff2") format("woff2"),
+		 url("/fonts/ktf-roadstar-webfont.woff") format("woff"),
+		 url("/fonts/ktf-roadstar-webfont.ttf") format("truetype"),
+		 url("/fonts/ktf-roadstar-webfont.svg#ktf-roadstarregular") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
 * {
 	box-sizing: border-box;
 }
 
 html, body {
 	margin: 0;
-	font-family: "robotolight", sans-serif;
+	font-family: 'robotolight', sans-serif;
 	background: $background;
 
 	padding: 0 2%;
@@ -42,15 +54,21 @@ header {
 	margin-right: -4.25%;
 
 	h1 {
+		font-family: 'roadstar';
+		text-transform: uppercase; // due to font family
+		font-weight: lighter;
+		font-style: normal;
+		font-size: 3rem;
+
 		margin-top: 0;
 		margin-bottom: 20px;
 
 		@include respond-min($m) {
-			font-size: 4.7rem;
+			font-size: 4.9rem;
 		}
 		
 		@include respond-min($l) {
-			font-size: 7.8rem;
+			font-size: 8rem;
 		}
 
 		& a {
