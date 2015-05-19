@@ -1,4 +1,4 @@
-.repo-list {
+.material-grid {
 	@include clearfix;
 	list-style-type: none;
 	margin-top: 0;
@@ -6,7 +6,7 @@
 	width: 100%;
 	margin-bottom: 0;
 
-	.repo-list__item-name {
+	.material-grid__item-name {
 		margin-top: 5px;
 
 		@include respond-min($m) {
@@ -14,7 +14,7 @@
 		}
 	}
 
-	.repo-list__item {
+	.material-grid__item {
 		@include material-shadow;
 		background: white;
 		padding: 10px;
@@ -69,7 +69,7 @@
 	}
 }
 
-.repo-list__more-link {
+.material-grid__more-link {
 	@include material-shadow;
 	background: white;
 	display: block;

@@ -1,10 +1,11 @@
-{% macro render(repos) %}
+{% macro render(repos, options) %}
 	{% for repo in repos %}
 		{% if loop.first %}
-			<ul class="repo-list">
+			<ul class="material-grid">
 		{% endif %}
-			<li class="repo-list__item">
-				<h4 class="repo-list__item-name">{{ repo.name }}</h4>
+			<li class="material-grid__item">
+				<h4 class="material-grid__item-name">{{ repo.name }}</h4>
+
 				<p aria-label="Written in {{ repo.language }}">{{ repo.language }}</p>
 				<p>{{ repo.description }}</p>
 				<a href="{{ repo.url }}">Go to project</a>
@@ -12,5 +13,5 @@
 		{% if loop.last %}</ul>{% endif %}
 	{% endfor %}
 
-	<a class="repo-list__more-link" href="https://github.com/jamesseanwright">More projects at GitHub</a>
+	<a class="material-grid__more-link" href="https://github.com/jamesseanwright">More projects at GitHub</a>
 {% endmacro %}
