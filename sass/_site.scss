@@ -92,6 +92,8 @@ section[role="main"] {
 	@include material-shadow;
 	padding: 10px;
 	background: white;
+	max-width: $max-width;
+	margin: 0 auto;
 }
 
 .github-logo {

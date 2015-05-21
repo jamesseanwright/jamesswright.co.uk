@@ -1,8 +1,8 @@
 .menu {
 	@include material-shadow;
-	margin-top: 0;
-	margin-bottom: 15px;
+	margin: 0 auto 15px auto;
 	position: relative;
+	max-width: $max-width;
 
 	.menu__show {
 		width: 100%;

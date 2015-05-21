@@ -3,6 +3,7 @@ $m: 600px;
 $l: 900px;
 
 $background: #E0EEEE;
+$max-width: 1280px;
 
 @mixin respond-min($width) {
 	@media(min-width: $width) {
