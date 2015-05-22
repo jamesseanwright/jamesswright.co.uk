@@ -1,8 +1,8 @@
-## [Running ASP.NET vNext on Ubuntu](/blog/1420502-asp-net-vnext-ubuntu)
+# Running ASP.NET vNext on Ubuntu
 
 <time datetime="2015-01-06">6th January 2015</time>
 
-![Developing ASP.NET vNext on Ubuntu](https://pbs.twimg.com/media/B6hJzO2IQAEiZ7D.png:large)
+<img src="https://pbs.twimg.com/media/B6hJzO2IQAEiZ7D.png:large" alt="ASP.NET vNext on Ubuntu" class="blog-post__image--primary" />
 
 I love C# and .NET; they both make the perfect combination of a fantastic language with a well-structured, fully-featured framework. I also love Ubuntu; it’s a great operating system that is very usable and provides the flexibility and openness of a typical Linux distribution.
 

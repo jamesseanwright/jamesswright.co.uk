@@ -1,8 +1,8 @@
-## [Code Snippet - Goroutines](/blog/1430352-goroutines)
+# Code Snippet - Goroutines
 
 <time datetime="2015-05-30">30th April 2015</time>
 
-A lovely language feature of Go for running two functions concurrently.
+A lovely language feature of Go for running functions concurrently.
 
 ```
 package main

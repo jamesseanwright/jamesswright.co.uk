@@ -1,4 +1,4 @@
-## [SimpleHttp - a basic HTTP server framework written in C#](/blog/1400371-simplehttp)
+# SimpleHttp - a basic HTTP server framework written in C#
 
 <time datetime="2014-05-18">18th May 2014</time>
 

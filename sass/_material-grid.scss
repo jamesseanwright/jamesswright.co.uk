@@ -1,3 +1,19 @@
+.material-grid--repos {
+	.material-grid__item {
+		/* only show 5 projects on mobile
+		 * doing it here to keep everything
+		 * in one place */
+		display: none;
+		&:first-child,
+		&:nth-child(2),
+		&:nth-child(3),
+		&:nth-child(4),
+		&:nth-child(5) {
+			display: list-item;
+		}
+	}
+}
+
 .material-grid {
 	@include clearfix;
 	list-style-type: none;
@@ -19,18 +35,6 @@
 		background: white;
 		padding: 10px;
 		margin: 10px 0;
-
-		/* only show 5 items on mobile
-		 * doing it here to keep everything
-		 * in one place */
-		display: none;
-		&:first-child,
-		&:nth-child(2),
-		&:nth-child(3),
-		&:nth-child(4),
-		&:nth-child(5) {
-			display: list-item;
-		}
 
 		@include respond-min($m) {
 			display: list-item; // show all items again

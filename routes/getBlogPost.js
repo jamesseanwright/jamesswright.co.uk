@@ -21,7 +21,7 @@ function convert(file) {
 }
 
 function render(res, post) {
-	res.render('blog/entry.html', {
+	res.render('blog/post.html', {
 		post: post
 	});
 }

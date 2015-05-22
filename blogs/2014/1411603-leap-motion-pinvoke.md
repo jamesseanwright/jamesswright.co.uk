@@ -1,4 +1,4 @@
-## [Leap Motion - Why is Leap.LeapPINVOKE throwing an exception when the DLLs are present?](/blog/1411603-leap-motion-pinvoke)
+# Leap Motion - Why is Leap.LeapPINVOKE throwing an exception when the DLLs are present?
 
 <time datetime="2014-09-25">25th September 2014</time>
 

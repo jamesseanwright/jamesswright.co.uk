@@ -1,7 +1,7 @@
 {% macro render(repos) %}
 	{% for repo in repos %}
 		{% if loop.first %}
-			<ul class="material-grid">
+			<ul class="material-grid material-grid--repos">
 		{% endif %}
 			<li class="material-grid__item">
 				<h4 class="material-grid__item-name">{{ repo.name }}</h4>

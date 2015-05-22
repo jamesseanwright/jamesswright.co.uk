@@ -1,9 +1,0 @@
-.blog-posts {
-	list-style-type: none;
-	padding-left: 0;
-
-	.blog-posts__post {
-		@extend .material-container;
-		margin-bottom: 20px;
-	}
-}
