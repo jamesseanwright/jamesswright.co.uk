@@ -1,4 +1,4 @@
-# 'Implementing AppFog' by Matthew Nohr and Isaac Rabinovitch
+## 'Implementing AppFog' by Matthew Nohr and Isaac Rabinovitch
 
 <time datetime="2014-04-04">4th April 2014</time>
 

@@ -1,4 +1,4 @@
-# Personality Forge.NET 1.0.1 released!
+## Personality Forge.NET 1.0.1 released!
 
 <time datetime="2014-09-23">23rd September 2014</time>
 

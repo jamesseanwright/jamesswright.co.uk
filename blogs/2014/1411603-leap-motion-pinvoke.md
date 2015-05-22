@@ -1,4 +1,4 @@
-# Leap Motion - Why is Leap.LeapPINVOKE throwing an exception when the DLLs are present?
+## Leap Motion - Why is Leap.LeapPINVOKE throwing an exception when the DLLs are present?
 
 <time datetime="2014-09-25">25th September 2014</time>
 
@@ -10,12 +10,12 @@ There was an update available (Leap Motion Control Panel -> General -> Install U
 
 EDIT: I’ve just followed my tutorial to double-check my findings, and there seems to be one additional step as of SDK version 1.2; I had to manually target my processor’s architecture. To do this for x64, once I’d included the correct Leap.dll and LeapCSharp.dll libraries in my project, I:
 
-# Right-clicked my solution in Solution Explorer and clicked Properties
-# Selected Configuration Properties on the left
-# Clicked Configuration Manager
-# In the resultant dialogue, under the Platform header for the project context, I clicked <New…>
-# Chose x64 from the first dropdown, and copied the settings from Any CPU
-# Clicked OK, Close, and OK
-# Rebuilt and ran my project
+1. Right-clicked my solution in Solution Explorer and clicked Properties
+2. Selected Configuration Properties on the left
+3. Clicked Configuration Manager
+4. In the resultant dialogue, under the Platform header for the project context, I clicked &ltNew…&gt
+5. Chose x64 from the first dropdown, and copied the settings from Any CPU
+6.Clicked OK, Close, and OK
+7. Rebuilt and ran my project
 
 Consequently, the program ran with no issues. Hope this helps!

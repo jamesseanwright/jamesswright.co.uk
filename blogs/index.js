@@ -35,7 +35,7 @@ module.exports = [
 		title: 'Personality Forge.NET 1.0.1 released!',
 		date: '23rd September 2014',
 		description: 'So what’s changed? Apart from refactoring and the addition of unit tests, not much.',
-		slug: '11411430-personality-forge'
+		slug: '1411430-personality-forge'
 	},
 	{
 		title: 'SimpleHttp - a basic HTTP server framework written in C#',

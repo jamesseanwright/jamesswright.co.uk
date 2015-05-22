@@ -7,7 +7,6 @@ var REPOS_KEY = 'repos';
 
 function fetch() {
 	var repos = jonathan.get(REPOS_KEY);
-
 	if (repos) {
 		return Promise.resolve(repos);
 	} else {

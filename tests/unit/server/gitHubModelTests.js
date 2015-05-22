@@ -4,6 +4,7 @@ var httpClient = require('../../../data/httpClient');
 describe('the GitHub model', function () {
 	describe('the data provider', function () {
 		var gitHubModel;
+		var mockJonathan = sinon.mock(jonathan);
 
 		beforeEach(function () {
 			gitHubModel = require('../../../models/gitHub');
@@ -51,11 +52,10 @@ describe('the GitHub model', function () {
 				created_at: 1
 			}];
 
-			var mockJonathanAdd = sinon.mock(jonathan)
-									.expects('add')
-									.once()
-									.withArgs('repos', [{ }], (3).days) // [{}] - having difficulty with tested encapsulated objects
-									.returns(expectedData);
+			mockJonathan.expects('add')
+				.once()
+				.withArgs('repos', sinon.match.array, (3).days)
+				.returns(expectedData);
 
 			sinon.stub(httpClient, 'get')
 				.withArgs('https://api.github.com/users/jamesseanwright/repos')
@@ -64,7 +64,7 @@ describe('the GitHub model', function () {
 			return gitHubModel.getRepos()
 				.then(function (data) {
 					data[0].name.should.equal(expectedData[0].name);
-					mockJonathanAdd.verify();
+					mockJonathan.verify();
 				});
 		});
 

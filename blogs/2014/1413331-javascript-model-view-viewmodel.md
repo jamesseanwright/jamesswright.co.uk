@@ -1,4 +1,4 @@
-# Code Snippet - Model-View-ViewModel pattern in JavaScript
+## Code Snippet - Model-View-ViewModel pattern in JavaScript
 
 <time datetime="2014-10-15">15th October 2014</time>
 

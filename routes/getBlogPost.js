@@ -5,9 +5,9 @@ var fs = require('fs');
 var jonathan = require('jonathan');
 var Showdown = require('showdown');
 var converter = new Showdown.converter();
+var posts = require('../blogs');
 var POST_KEY = 'post';
 
-// TODO: move into single entry route
 function convert(file) {
 	return new Promise(function (resolve, reject) {
 		fs.readFile(file, function (err, content) {
@@ -20,8 +20,13 @@ function convert(file) {
 	});
 }
 
-function render(res, post) {
+function render(res, post, slug) {
+	var title = posts.filter(function(post) {
+		return post.slug === slug;
+	})[0].title;
+
 	res.render('blog/post.html', {
+		title: title,
 		post: post
 	});
 }
@@ -32,7 +37,7 @@ module.exports = function (req, res, next) {
 	var post = jonathan.get(key);
 
 	if (post) {
-		render(res, post);
+		render(res, slug, post);
 		return;
 	}
 
@@ -45,7 +50,7 @@ module.exports = function (req, res, next) {
 		convert(files[0])
 			.then(function (markdown) {
 				jonathan.add(key, markdown, (1).months);
-				render(res, markdown);
+				render(res, markdown, slug);
 			}).catch(next);
 	});
 };
