@@ -9,6 +9,7 @@ var getBlog = require('./routes/getBlog');
 var getBlogPost = require('./routes/getBlogPost');
 var getProjects = require('./routes/getProjects');
 var getView = require('./routes/getView');
+var setCacheHeaders = require('./routes/setCacheHeaders');
 var handleError = require('./routes/handleError');
 var isDevelopment = env === 'development';
 
@@ -30,6 +31,8 @@ swig.setDefaults({
 		}
 	}
 });
+
+app.use(setCacheHeaders);
 
 app.get('/projects', getProjects);
 app.get('/blog', getBlog);
