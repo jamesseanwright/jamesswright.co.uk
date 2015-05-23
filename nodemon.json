@@ -2,12 +2,13 @@
 	"ignore": [
 		"build-scripts",
 		"log",
+		"public/javascripts",
 		"sass",
 		"tasks",
 		"tests",
 		"views"
 	],
-	"execMap": {
-		"clientjs/**/*.js": "echo lol"
+	"events": {
+		"restart": "uglifyjs --compress --screw-ie8 --output public/javascripts/main.min.js -- clientjs/*"
 	}
 } 
