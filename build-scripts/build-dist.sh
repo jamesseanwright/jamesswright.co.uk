@@ -11,7 +11,6 @@ cp -R init/ dist/
 cp -R models/ dist/
 cp -R public/ dist/
 rm -R dist/public/vendor/
-rm dist/public/stylesheets/main.css
 cp -R routes/ dist/
 cp -R utils/ dist/
 cp -R views/ dist/
