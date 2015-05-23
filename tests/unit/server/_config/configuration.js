@@ -1,4 +1,4 @@
-module.exports = (function () {
+(function () {
 	var chai = require('chai');
 	var chaiAsPromised = require('chai-as-promised');
 	var sinon = require('sinon');

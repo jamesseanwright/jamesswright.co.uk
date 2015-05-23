@@ -1,2 +1,4 @@
 #!/bin/bash
-npm install -g grunt-cli && npm install -g bower && npm i && bower i && grunt uglify
+npm install -g bower node-sass nodemon mocha mocha-phantomjs uglify-js
+npm i && bower i
+uglifyjs --compress --output public/javascripts/main.min.js -- clientjs/*

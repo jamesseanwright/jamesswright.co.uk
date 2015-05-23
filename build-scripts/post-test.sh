@@ -1,2 +1,2 @@
 #!/bin/bash
-gem install sass --no-ri --no-rdoc && grunt sass && grunt cssmin
+node-sass sass/main.scss public/stylesheets/main.min.css--output-style compressed
