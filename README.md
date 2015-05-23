@@ -7,4 +7,4 @@ My new website, written in Node.js and Express. It will be responsive, accessibl
 * [Production (beta)](http://beta.jamesswright.co.uk/)
 
 ## Unit tests
-Both the client-side and server-side unit tests can be run with `npm test`. You'll need to run `npm i` and `bower i` first.
+Both the client-side and server-side unit tests can be run with `npm test`.
