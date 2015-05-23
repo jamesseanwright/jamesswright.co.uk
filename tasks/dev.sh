@@ -2,7 +2,7 @@
 # Starts the server and relaunches when files change
 
 # TODO: watch for changes in clientjs!
-## uglifyjs --compress --output public/javascripts/main.min.js -- clientjs/*
+uglifyjs --compress --output public/javascripts/main.min.js -- clientjs/*
 
 node-sass sass/main.scss public/stylesheets/main.min.css --watch sass/* --output-style compressed &
 SASS_PID=$!
