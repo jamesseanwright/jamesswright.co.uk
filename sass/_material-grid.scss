@@ -22,7 +22,7 @@
 	&.material-grid--blog {
 		.material-grid__item {
 			@include respond-min($m) {
-				height: 365px;
+				height: 395px;
 			}
 		}
 	}

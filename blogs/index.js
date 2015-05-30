@@ -26,7 +26,7 @@ module.exports = [
 		slug: '1413331-javascript-model-view-viewmodel'
 	},
 	{
-		title: 'Why is Leap.LeapPINVOKE throwing an exception when the DLLs are present?',
+		title: 'Leap.LeapPINVOKE throws an exception when the DLLs are present',
 		date: '25th September 2014',
 		description: 'A reader who followed my Leap Motion tutorial found that their code threw an exception around Leap.LeapPINVOKE...',
 		slug: '1411603-leap-motion-pinvoke'
