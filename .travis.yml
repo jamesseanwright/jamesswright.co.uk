@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - 0.1
 install: "./tasks/pre-test.sh"
-after_success: "./tasks/post-test.sh && ./tasks/build-dist.sh && cd dist"
+after_success: "./tasks/post-test.sh && ./tasks/dist.sh && cd dist"
 deploy:
   provider: appfog
   email: jamesseanwright@gmail.com
