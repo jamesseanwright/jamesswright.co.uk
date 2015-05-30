@@ -2,7 +2,7 @@
 
 <time datetime="2015-05-30">30th May 2015</time>
 
-After 7 months of hard work (read: 7 months of small, gradual steps), my new responsive website is finally in production! Rather than derail this post into some sentimental thank you speech (just kidding!), I'm glad to finally have a website that can supersede my Tumblr blog, and that I hope will serve as a superiour representation of my work. That said, there are still some posts that I wish to port over from my old blog before it is fully decommisioned.
+After 7 months of hard work (read: 7 months of small, gradual steps), my new responsive website is finally in production! Rather than derail this post into some sentimental thank you speech (just kidding!), I'd just like to say that I'm glad to have a solution that will supersede my Tumblr blog, and hope it will serve as a superior representation of my work. That said, there are still some posts that I wish to port over from my old blog before it is fully decommisioned.
 
 The site has been developed in valid and semantic HTML5, [Sass](http://sass-lang.com/), and JavaScript, as well as Node.js and [Express](http://expressjs.com/) on the backend. Additionally, this blog is powered by [Showdown](https://github.com/showdownjs/showdown), because Markdown is awesome.
 
