@@ -1,9 +1,9 @@
 #! /bin/bash
 echo "Building dist files..."
-cp -R .git ../git-backup
 rm -rf dist/*
-cp -R ../git-backup .git
-rm -rf ../git-backup
+cd dist
+git init
+cd ..
 
 cp server.js package.json bower.json dist/
 
@@ -17,3 +17,8 @@ rm -R dist/public/vendor/
 cp -R routes/ dist/
 cp -R utils/ dist/
 cp -R views/ dist/
+
+cd dist
+git add -A
+git commit -m "Release"
+cd ..
