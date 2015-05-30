@@ -1,20 +1,32 @@
-.material-grid--repos {
-	.material-grid__item {
-		/* only show 5 projects on mobile
-		 * doing it here to keep everything
-		 * in one place */
-		display: none;
-		&:first-child,
-		&:nth-child(2),
-		&:nth-child(3),
-		&:nth-child(4),
-		&:nth-child(5) {
-			display: list-item;
+.material-grid {
+	&.material-grid--repos {
+		.material-grid__item {
+			/* only show 5 projects on mobile
+			 * doing it here to keep everything
+			 * in one place */
+			display: none;
+			&:first-child,
+			&:nth-child(2),
+			&:nth-child(3),
+			&:nth-child(4),
+			&:nth-child(5) {
+				display: list-item;
+			}
+
+			@include respond-min($m) {
+				display: list-item; // show all items again
+			}
 		}
 	}
-}
 
-.material-grid {
+	&.material-grid--blog {
+		.material-grid__item {
+			@include respond-min($m) {
+				height: 365px;
+			}
+		}
+	}
+
 	@include clearfix;
 	list-style-type: none;
 	margin-top: 0;
@@ -37,7 +49,6 @@
 		margin: 10px 0;
 
 		@include respond-min($m) {
-			display: list-item; // show all items again
 			float: left;
 			width: calc(50% - 10px);
 			height: 320px;

@@ -1,3 +1,5 @@
+$header_background: #303030;
+
 @font-face {
 	font-family: 'robotolight';
 	src: url("/fonts/roboto-light-webfont.eot");
@@ -44,14 +46,18 @@ html, body {
 
 header {
 	@include material-shadow;
-
-	background: #006060;
+	background: $header_background;
 	padding: 10px 20px;
 	color: white;
 	text-align: center;
 	margin-bottom: 15px;
 	margin-left: -4.25%;
 	margin-right: -4.25%;
+
+	@include respond-min($m) {
+		background: url('/images/header-background.jpg') center no-repeat;
+		background-color: $header_background;
+	}
 
 	h1 {
 		font-family: 'nautilus';
