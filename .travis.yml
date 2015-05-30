@@ -22,7 +22,8 @@ deploy:
     skip_cleanup: true
   - provider: heroku
     app: james-wright-beta
-    strategy: git
+    strategy: api
+    buildpack: "https://github.com/heroku/heroku-buildpack-nodejs#v63"
     api_key:
       secure: jgJRdshxNSuIBNtdqcy5HbzdcRoljHSgMO0/oqsEiL/hl3DFoIp7tIOwCKnWUg/ciZF34eAxfYpjfqHDDltwyNbyaIXckjLNzXBSTNj6JMFfF+mTJ4Mk8DNziPD7a0Sd2vvQ0JLC13gFH3jPdiIcsjHN4G+IZRC6xSrwx46jiH4=
     on:
@@ -30,7 +31,8 @@ deploy:
     skip_cleanup: true
   - provider: heroku
     app: james-wright-prod
-    strategy: git
+    strategy: api
+    buildpack: "https://github.com/heroku/heroku-buildpack-nodejs#v63"
     api_key:
       secure: jgJRdshxNSuIBNtdqcy5HbzdcRoljHSgMO0/oqsEiL/hl3DFoIp7tIOwCKnWUg/ciZF34eAxfYpjfqHDDltwyNbyaIXckjLNzXBSTNj6JMFfF+mTJ4Mk8DNziPD7a0Sd2vvQ0JLC13gFH3jPdiIcsjHN4G+IZRC6xSrwx46jiH4=
     on:
