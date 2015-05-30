@@ -2,6 +2,12 @@
 
 module.exports = [
 	{
+		title: 'Entering the responsive world!',
+		date: '30th May 2015',
+		description: 'My new responsive website is finally in production!',
+		slug: '1433007-responsive-world'
+	},
+	{
 		title: 'Code Snippet - Goroutines',
 		date: '30th April 2015',
 		description: 'A lovely language feature of Go for running functions concurrently.',
