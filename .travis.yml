@@ -4,11 +4,33 @@ node_js:
 install: "./tasks/pre-test.sh"
 after_success: "./tasks/post-test.sh && ./tasks/dist.sh && cd dist"
 deploy:
-  provider: appfog
-  email: jamesseanwright@gmail.com
-  app: jameswright
-  password:
-    secure: CMTuF11s27GOLdNBFnFv3fAaymiY9Klx2oPrr3mC/gqV47myVvqvEPFidgmBkHjP/kRMMES8H0n4TquSxJ8aprgZpOlad9KW9HUJH745L2AA4rUSMZ68piEMK39Mu+iQFUTlUaRzFFSD8iDtwzvBGalkon+ZA8TtJp1UHlwePZo=
-  on:
-    all_branches: true
-  skip_cleanup: true
+  - provider: appfog
+  	email: jamesseanwright@gmail.com
+  	app: jameswright
+  	password:
+    	secure: CMTuF11s27GOLdNBFnFv3fAaymiY9Klx2oPrr3mC/gqV47myVvqvEPFidgmBkHjP/kRMMES8H0n4TquSxJ8aprgZpOlad9KW9HUJH745L2AA4rUSMZ68piEMK39Mu+iQFUTlUaRzFFSD8iDtwzvBGalkon+ZA8TtJp1UHlwePZo=
+  	on:
+    	branch: development
+  	skip_cleanup: true
+  - provider: appfog
+  	email: jamesseanwright@gmail.com
+  	app: jameswright
+  	password:
+    	secure: CMTuF11s27GOLdNBFnFv3fAaymiY9Klx2oPrr3mC/gqV47myVvqvEPFidgmBkHjP/kRMMES8H0n4TquSxJ8aprgZpOlad9KW9HUJH745L2AA4rUSMZ68piEMK39Mu+iQFUTlUaRzFFSD8iDtwzvBGalkon+ZA8TtJp1UHlwePZo=
+  	on:
+    	branch: development
+  	skip_cleanup: true
+  - provider: heroku
+  	app: james-wright-beta
+  	password:
+    	secure: NrK2Pe3E6dKDngSB7s6WDi1JEylom2svqinWe6foZq0gENXau3PGoFkQk6SUBT4ZrqabGc45oA+zos4xNHr3nuCysB52Wu3NedIyZ/zX1D5IYkXuwYIaQ1Y7wawTgPkd4eFGx96I66rzog4iYe96Wwc2dqE7wR/4X6fAVkFZmys=
+  	on:
+    	branch: staging
+  	skip_cleanup: true
+  - provider: heroku
+  	app: james-wright-prod
+  	password:
+    	secure: NrK2Pe3E6dKDngSB7s6WDi1JEylom2svqinWe6foZq0gENXau3PGoFkQk6SUBT4ZrqabGc45oA+zos4xNHr3nuCysB52Wu3NedIyZ/zX1D5IYkXuwYIaQ1Y7wawTgPkd4eFGx96I66rzog4iYe96Wwc2dqE7wR/4X6fAVkFZmys=
+  	on:
+    	branch: master
+  	skip_cleanup: true

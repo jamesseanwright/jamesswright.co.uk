@@ -4,7 +4,7 @@ module.exports = [
 	{
 		title: 'Code Snippet - Goroutines',
 		date: '30th April 2015',
-		description: 'A lovely language feature of Go for running two functions concurrently.',
+		description: 'A lovely language feature of Go for running functions concurrently.',
 		slug: '1430352-goroutines'
 	},
 	{

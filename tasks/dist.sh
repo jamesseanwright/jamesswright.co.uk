@@ -1,7 +1,10 @@
 #! /bin/bash
 echo "Building dist files..."
-mkdir -p dist
+cp -R .git ../git-backup
 rm -rf dist/*
+cp -R ../git-backup .git
+rm -rf ../git-backup
+
 cp server.js package.json bower.json dist/
 
 cp -R node_modules/ dist/
