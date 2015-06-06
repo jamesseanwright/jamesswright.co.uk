@@ -4,7 +4,8 @@ My new website, written in Node.js and Express. It is responsive, accessible, an
 
 ## Environments
 * [Development](http://jameswright.eu01.aws.af.cm/)
-* [Production (beta)](http://beta.jamesswright.co.uk/)
+* [Stage](http://stage.jamesswright.co.uk/)
+* [Production](http://production.jamesswright.co.uk/)
 
 ## Unit tests
 Both the client-side and server-side unit tests can be run with `npm test`. There are some global dependencies to install first.
