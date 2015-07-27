@@ -13,11 +13,13 @@ function open(slug) {
 		glob('blogs/**/' + slug + '.md', function (err, files) {
 			if (!files.length) {
 				reject(new Error(404));
+				return;
 			}
 
 			fs.readFile(files[0], function (err, content) {
 				if (err) {
 					reject(err);
+					return;
 				}
 
 				resolve(content);
