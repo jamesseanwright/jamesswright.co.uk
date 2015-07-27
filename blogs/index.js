@@ -44,6 +44,12 @@ module.exports = [
 		slug: '1411430-personality-forge'
 	},
 	{
+		title: 'Getting started with Leap Motion in C#',
+		date: '21st June 2014',
+		description: 'Leap Motion has a great SDK, simplifying hand, digit, and object tracking.',
+		slug: '14033080-leap-motion-c-sharp'
+	},
+	{
 		title: 'SimpleHttp - a basic HTTP server framework written in C#',
 		date: '18th May 2014',
 		description: 'I started playing around with some classes in the System.Net namespace, and I wrote respective wrapper classes.',
@@ -54,5 +60,17 @@ module.exports = [
 		date: '4th April 2014',
 		description: 'Implementing AppFog is an invaluable book that details how technologists can deploy software to the cloud in minutes.',
 		slug: '1396569-implementing-appfog'
+	},
+	{
+		title: 'Custom Fonts in Windows 8 Store Apps',
+		date: '13th September 2013',
+		description: 'I was pulling my hair out over custom fonts in a Windows 8 Store app last weekend.',
+		slug: '1379030-windows-8-app-fonts'
+	},
+	{
+		title: 'C# - Deserialising JSON to objects using generics',
+		date: '15th April 2013',
+		description: 'I wanted to look into deserialisation in C# because it’s a concept with which I was not too familiar at the time.',
+		slug: '1365984-c-sharp-json-generics'
 	}
 ]

@@ -1,9 +1,9 @@
 'use strict';
 
-var index = require('../blogs');
+var blogsModel = require('../models/blog');
 
 module.exports = function (req, res, next) {
 	res.render('blog/posts.html', {
-		posts: index
+		posts: blogsModel.getAll()
 	});
 };
