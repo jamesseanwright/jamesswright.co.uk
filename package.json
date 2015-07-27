@@ -22,6 +22,6 @@
   "scripts": {
     "dev": "./tasks/dev.sh",
     "test": "./tasks/test.sh",
-    "dist": "./tasks/dist.sh"
+    "release": "./tasks/release.sh"
   }
 }
