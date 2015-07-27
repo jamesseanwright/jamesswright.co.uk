@@ -1,3 +1,5 @@
+'use strict';
+
 var glob = require('glob');
 var fs = require('fs');
 var jonathan = require('jonathan');
@@ -6,16 +8,26 @@ var converter = new Showdown.converter();
 var posts = require('../../blogs');
 var POST_KEY = 'post';
 
-function convert(file) {
+function open(slug) {
 	return new Promise(function (resolve, reject) {
-		fs.readFile(file, function (err, content) {
-			if (err) {
-				reject(err);
+		glob('blogs/**/' + slug + '.md', function (err, files) {
+			if (!files.length) {
+				reject(new Error(404));
 			}
 
-			resolve(converter.makeHtml(content.toString()));
+			fs.readFile(files[0], function (err, content) {
+				if (err) {
+					reject(err);
+				}
+
+				resolve(content);
+			});
 		});
 	});
+}
+
+function convert(markdown) {
+	return Promise.resolve(converter.makeHtml(markdown.toString()));
 }
 
 function getTitle(slug) {
@@ -37,25 +49,16 @@ module.exports = {
 			return Promise.resolve(post);
 		}
 
-		return new Promise(function (resolve, reject) {
-			glob('blogs/**/' + slug + '.md', function (err, files) {
-				if (!files.length) {
-					reject(new Error(404));
-					return;
-				}
+		return open(slug)
+			.then(convert)
+			.then(function (html) {
+				var post = {
+					title: getTitle(slug),
+					html: html
+				};
 
-				convert(files[0])
-					.then(function (html) {
-						console.log(getTitle(slug));
-						var post = {
-							title: getTitle(slug),
-							html: html
-						};
-
-						jonathan.add(key, post);
-						resolve(post);
-					}).catch(reject);
+				jonathan.add(key, post);
+				return post;
 			});
-		});
 	}
 };
