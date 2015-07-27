@@ -1,9 +1,5 @@
 #! /bin/bash
 echo "Building dist files..."
-rm -rf dist/*
-cd dist
-git init
-cd ..
 
 cp server.js package.json bower.json dist/
 
@@ -21,4 +17,5 @@ cp -R views/ dist/
 cd dist
 git add -A
 git commit -m "Release"
+git push heroku master
 cd ..

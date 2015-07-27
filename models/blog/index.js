@@ -19,7 +19,7 @@ function convert(file) {
 }
 
 function getTitle(slug) {
-	var title = posts.filter(function(post) {
+	return posts.filter(function(post) {
 		return post.slug === slug;
 	})[0].title;
 }
@@ -46,6 +46,7 @@ module.exports = {
 
 				convert(files[0])
 					.then(function (html) {
+						console.log(getTitle(slug));
 						var post = {
 							title: getTitle(slug),
 							html: html
