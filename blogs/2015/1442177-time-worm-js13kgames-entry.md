@@ -1,7 +1,6 @@
 ## Time Worm! - My js13kGames 2015 Entry
 
 <time datetime="2015-09-13">13th September 2015</time>
-
 <img src="https://github.com/jamesseanwright/time-worm/raw/master/screenshots/full.jpeg" alt="Time Worm! Screenshot" class="blog-post__image--primary" />
 
 Like any other developer, I'm always on the lookout for ways in which I can push my programming abilities to the next level. Since my main focus has been JavaScript as of late, I decided to enter the [js13kGames](http://js13kgames.com/) contest. The challenge: write a game using JavaScript, HTML5, and CSS that, when minified and zipped, is no larger than 13 kilobytes; that limit is inclusive of assets. 

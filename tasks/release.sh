@@ -1,5 +1,13 @@
-#! /bin/bash
+#!/bin/bash
 echo "Building dist files..."
+
+if [ -e dist/ ]
+then
+	rm -rf dist/
+fi
+
+heroku git:clone -a james-wright-prod
+mv james-wright-prod dist
 
 cp server.js package.json bower.json dist/
 
