@@ -6,9 +6,6 @@ then
 	rm -rf dist/
 fi
 
-heroku git:clone -a james-wright-prod
-mv james-wright-prod dist
-
 cp server.js package.json bower.json dist/
 
 cp -R node_modules/ dist/
@@ -23,7 +20,10 @@ cp -R utils/ dist/
 cp -R views/ dist/
 
 cd dist
+git init
 git add -A
 git commit -m "Release"
+git remote add heroku https://git.heroku.com/james-wright-prod.git
+git pull heroku master
 git push heroku master
 cd ..
