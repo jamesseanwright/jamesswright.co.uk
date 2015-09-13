@@ -1,6 +1,12 @@
 'use strict';
-
+	
 module.exports = [
+	{
+		title: 'Time Worm! - My js13kGames 2015 Entry',
+		date: '13th September 2015',
+		description: 'Getting acquainted with JavaScript games development.',
+		slug: '1442177-time-worm-js13kgames-entry'
+	},
 	{
 		title: 'Entering the responsive world!',
 		date: '30th May 2015',
