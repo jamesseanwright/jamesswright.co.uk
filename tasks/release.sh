@@ -18,13 +18,13 @@ cp -R ../blogs/ .
 cp -R ../data/ .
 cp -R ../init/ .
 cp -R ../models/ .
-cp -R ../public/ .
-rm -R public/vendor/
+cp -R ../sass/ .
+cp -R ../clientjs/ .
 cp -R ../routes/ .
 cp -R ../utils/ .
 cp -R ../views/ .
 
 git add -A
 git commit -m "Release"
-git push heroku master
+git push origin master
 cd ..

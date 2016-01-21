@@ -22,6 +22,7 @@
   "scripts": {
     "dev": "./tasks/dev.sh",
     "test": "./tasks/test.sh",
-    "release": "./tasks/release.sh"
+    "release": "./tasks/release.sh",
+    "postinstall": "./tasks/build-js.sh && ./tasks/build-sass.sh"
   }
 }
