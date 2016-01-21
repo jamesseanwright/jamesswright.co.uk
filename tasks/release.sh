@@ -16,15 +16,15 @@ cp ../server.js ../package.json ../bower.json .
 ./tasks/build-js.sh
 ./tasks/build-sass.sh
 
-cp -R ../node_modules/ .
-cp -R ../blogs/ .
-cp -R ../data/ .
-cp -R ../init/ .
-cp -R ../models/ .
-cp -R ../public/ .
-cp -R ../routes/ .
-cp -R ../utils/ .
-cp -R ../views/ .
+cp -R ../node_modules
+cp -R ../blogs
+cp -R ../data
+cp -R ../init
+cp -R ../models
+cp -R ../public
+cp -R ../routes
+cp -R ../utils
+cp -R ../views
 
 git add -A
 git commit -m "Release"
