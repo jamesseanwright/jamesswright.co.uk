@@ -22,7 +22,6 @@
   "scripts": {
     "dev": "./tasks/dev.sh",
     "test": "./tasks/test.sh",
-    "release": "./tasks/release.sh",
-    "preinstall": "./tasks/pre-test.sh && ./tasks/post-test.sh"
+    "release": "./tasks/release.sh"
   }
 }
