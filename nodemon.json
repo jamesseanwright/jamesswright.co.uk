@@ -9,6 +9,6 @@
 		"views"
 	],
 	"events": {
-		"restart": "uglifyjs --compress --screw-ie8 --output public/javascripts/main.min.js -- clientjs/*"
+		"restart": "./tasks/build-js"
 	}
-} 
+}
