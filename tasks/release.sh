@@ -8,8 +8,7 @@ then
 	rm -rf $DIST_DIR
 fi
 
-#git clone https://git.heroku.com/james-wright-prod.git $DIST_DIR
-mkdir $DIST_DIR
+git clone https://git.heroku.com/james-wright-prod.git $DIST_DIR
 cd $DIST_DIR
 cp ../server.js ../package.json ../bower.json .
 
