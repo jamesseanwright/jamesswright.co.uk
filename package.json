@@ -2,6 +2,9 @@
   "description": "James Wright's responsive, and accessible website",
   "repository": "https://github.com/jamesseanwright/jamesswright.co.uk",
   "readme": "https://github.com/jamesseanwright/jamesswright.co.uk/blob/master/README.md",
+  "engines": {
+    "node": "4.2.3"
+  },
   "dependencies": {
     "express": "^4.10.2",
     "glob": "^5.0.5",
