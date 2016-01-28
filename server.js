@@ -2,6 +2,8 @@
 
 var express = require('express');
 var swig = require('swig');
+var notifyValimate = require('valimate-notifier');
+
 var app = express();
 var server;
 var env = process.env.NODE_ENV || 'production';
@@ -20,16 +22,16 @@ app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
-swig.setDefaults({ 
-	cache: isDevelopment
-		? false
-		: 'memory',
+swig.setDefaults({
+    cache: isDevelopment
+        ? false
+        : 'memory',
 
-	locals: {
-		currentYear: function () {
-			return new Date().getFullYear();
-		}
-	}
+    locals: {
+        currentYear: function () {
+            return new Date().getFullYear();
+        }
+    }
 });
 
 app.use(setCacheHeaders);
@@ -42,13 +44,15 @@ app.get('/:viewName?', getView);
 app.use(handleError);
 
 server = app.listen(process.env.PORT || 3000, function () {
-	console.log('Website running on port ' + server.address().port
-		+ '\nEnvironment: ' + env);
+    console.log('Website running on port ' + server.address().port
+        + '\nEnvironment: ' + env);
+
+    notifyValimate(true);
 });
 
 process.on('SIGTERM', function () {
-	console.log('Ending server process...');
-	server.close(function () {
-		process.exit(0);
-	});
+    console.log('Ending server process...');
+    server.close(function () {
+        process.exit(0);
+    });
 });

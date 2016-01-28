@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - 0.1
+  - 4
 install: "./tasks/pre-test.sh"
 after_success: "./tasks/post-test.sh && ./tasks/dist.sh && cd dist"
 deploy:
@@ -19,12 +19,4 @@ deploy:
       secure: CMTuF11s27GOLdNBFnFv3fAaymiY9Klx2oPrr3mC/gqV47myVvqvEPFidgmBkHjP/kRMMES8H0n4TquSxJ8aprgZpOlad9KW9HUJH745L2AA4rUSMZ68piEMK39Mu+iQFUTlUaRzFFSD8iDtwzvBGalkon+ZA8TtJp1UHlwePZo=
     on:
       branch: development
-    skip_cleanup: true
-  - provider: heroku
-    app: 
-      staging: james-wright-beta
-      master: james-wright-prod
-    strategy: git
-    api_key:
-      secure: jgJRdshxNSuIBNtdqcy5HbzdcRoljHSgMO0/oqsEiL/hl3DFoIp7tIOwCKnWUg/ciZF34eAxfYpjfqHDDltwyNbyaIXckjLNzXBSTNj6JMFfF+mTJ4Mk8DNziPD7a0Sd2vvQ0JLC13gFH3jPdiIcsjHN4G+IZRC6xSrwx46jiH4=
     skip_cleanup: true

@@ -9,17 +9,8 @@ then
 fi
 
 git clone https://git.heroku.com/james-wright-prod.git $DIST_DIR
-
 cd $DIST_DIR
 cp ../server.js ../package.json ../bower.json .
-
-# I'm think initialising a sub repo in Git is
-# copying over the .gitignore file from the parent!
-if [ -e .gitignore ]
-then
-	rm .gitignore
-fi
-
 
 cp -R ../node_modules .
 cp -R ../blogs .
@@ -33,7 +24,14 @@ cp -R ../views .
 
 rm -rf public/vendor
 
+# I'm think Heroku keeps restoring my dev .gitignore!
+if [ -e .gitignore ]
+then
+  rm .gitignore
+fi
+
 git add -A
 git commit -m "Release"
 git push origin master
 cd ..
+
