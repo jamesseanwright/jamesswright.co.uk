@@ -12,7 +12,6 @@ git clone https://git.heroku.com/james-wright-prod.git $DIST_DIR
 cd $DIST_DIR
 cp ../server.js ../package.json ../bower.json .
 
-cp -R ../node_modules .
 cp -R ../blogs .
 cp -R ../data .
 cp -R ../init .
