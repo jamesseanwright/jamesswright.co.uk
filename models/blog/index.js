@@ -23,7 +23,7 @@ module.exports = {
 
 		return this._getContent(slug)
 			.then(this._convert)
-			.then(post => this._buildPost(slug, post))
+			.then(markdown => this._buildPost(slug, markdown))
 			.then(post => this._cachePost(key, post));
 	},
 	
@@ -34,7 +34,7 @@ module.exports = {
 	
 	_findFileBySlug(slug) {
 		return new Promise((resolve, reject) => {
-			glob('blogs/**/' + slug + '.md', (error, files) => {
+			glob(`blogs/**/${slug}.md`, (error, files) => {
 				if (error) {
 					reject(error);
 				} else if (!files.length) {
