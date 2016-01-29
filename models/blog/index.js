@@ -21,28 +21,39 @@ module.exports = {
 			return Promise.resolve(post);
 		}
 
-		return this._open(slug)
+		return this._getContent(slug)
 			.then(this._convert)
 			.then(post => this._buildPost(slug, post))
 			.then(post => this._cachePost(key, post));
 	},
 	
-	_open(slug) {
+	_getContent(slug) {
+		return this._findFileBySlug(slug)
+				   .then(this._readFile);
+	},
+	
+	_findFileBySlug(slug) {
 		return new Promise((resolve, reject) => {
-			glob('blogs/**/' + slug + '.md', function (err, files) {
-				if (!files.length) {
+			glob('blogs/**/' + slug + '.md', (error, files) => {
+				if (error) {
+					reject(error);
+				} else if (!files.length) {
 					reject(new Error(404));
-					return;
+				} else {
+					resolve(files[0]);
 				}
-
-				fs.readFile(files[0], function (err, content) {
-					if (err) {
-						reject(err);
-						return;
-					}
-
+			});
+		});
+	},
+	
+	_readFile(file) {
+		return new Promise((resolve, reject) => {
+			fs.readFile(file, function (error, content) {
+				if (error) {
+					reject(err);
+				} else {
 					resolve(content);
-				});
+				}
 			});
 		});
 	},
