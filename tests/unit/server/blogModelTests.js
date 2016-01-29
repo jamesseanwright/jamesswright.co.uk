@@ -1,3 +1,3 @@
 'use strict';
 
-var blogModel = require('../../../models/blogModel');
+var blogModel = require('../../../models/blog');
