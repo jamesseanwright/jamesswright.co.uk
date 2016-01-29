@@ -4,13 +4,13 @@ const blogModel = require('../../../models/blog');
 const jonathan = require('jonathan');
 
 describe('the blog model', function () {
+	const markdown = '# lol';
+	const html = '<h1>lol</h1>';
+	const slug = 'lol';
+	const key = `post-${slug}`;
+	const postModel = {};
+	
 	describe('the get method', function () {
-		const markdown = '# lol';
-		const html = '<h1>lol</h1>';
-		const slug = 'lol';
-		const key = `post-${slug}`;
-		const postModel = {};
-		
 		var mockJonathan;
 		var mockBlogModel;
 		
@@ -67,5 +67,23 @@ describe('the blog model', function () {
 						mockBlogModel.verify();
 					});
 		});
-	})
-});	
+	});
+	
+	describe('the _getTitle method', function () {
+		const title = 'Post Title';
+		const posts = [{ slug, title }];
+		
+		afterEach(function () {
+			if (blogModel.getAll.restore) {
+				blogModel.getAll.restore();
+			}
+		});
+		
+		it('should get the title for the specfied slug', function () {
+			sinon.stub(blogModel, 'getAll').returns(posts);
+			
+			const actualTitle = blogModel._getTitle(slug);
+			actualTitle.should.equal(title);
+		});
+	});
+});
