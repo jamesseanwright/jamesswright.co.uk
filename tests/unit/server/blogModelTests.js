@@ -26,7 +26,7 @@ describe('the blog model', function () {
 						
 			return blogModel.get(slug)
 					.then(actualPost => {
-						actualPost.should.equal(post);
+						actualPost.should.equal('no');
 						mockJonathan.verify();
 					});
 		});
