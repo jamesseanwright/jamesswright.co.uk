@@ -2,26 +2,26 @@
 
 module.exports = class Repo {
 	constructor(data) {
-		this.data = data;
+		this._data = data;
 	}
 	
 	get name() {
-		return data.name;
+		return this._data.name;
 	}
 
 	get url() {
-		return data.html_url;
+		return this._data.html_url;
 	}
 
 	get language() {
-		return data.language;
+		return this._data.language;
 	}
 
 	get description() {
-		return data.description;
+		return this._data.description;
 	}
 
 	get isFork() {
-		return data.fork;
+		return this._data.fork;
 	}
 };

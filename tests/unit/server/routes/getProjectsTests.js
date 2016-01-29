@@ -1,6 +1,8 @@
-var getProjects = require('../../../../routes/getProjects');
-var gitHubModel = require('../../../../models/gitHub');
-var fakeRes = { status: function (code) {}, render: function (view, data) {} };
+'use strict';
+
+const getProjects = require('../../../../routes/getProjects');
+const gitHubModel = require('../../../../models/gitHub');
+const fakeRes = { status: function (code) {}, render: function (view, data) {} };
 
 describe('the getProjects route', function () {
 	afterEach(function () {
@@ -16,7 +18,7 @@ describe('the getProjects route', function () {
 		sinon.stub(gitHubModel, 'getForks')
 			.returns(Promise.resolve(['fork one']));
 
-		var mockRender = sinon.mock(fakeRes)
+		const mockRender = sinon.mock(fakeRes)
 			.expects('render')
 			.once()
 			.withArgs('projects.html', { 

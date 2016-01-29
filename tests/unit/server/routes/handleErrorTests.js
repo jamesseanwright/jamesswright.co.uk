@@ -1,6 +1,9 @@
-var fs = require('fs');
-var handleError = require('../../../../routes/handleError');
-var fakeRes = { status: function (code) {}, render: function (view, data) {} };
+'use strict';
+
+const fs = require('fs');
+const handleError = require('../../../../routes/handleError');
+const fakeRes = { status: function (code) {}, render: function (view, data) {} };
+
 var mockRes;
 
 describe('the handleError middleware', function () {

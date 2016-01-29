@@ -1,3 +1,5 @@
+'use strict';
+
 describe('the menu tests', function () {
 	var menuElement;
 

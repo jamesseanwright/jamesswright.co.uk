@@ -1,8 +1,11 @@
+'use strict';
+
 const nock = require('nock');
 const handler = { callback: function (data) { } };
-const mockCallback;
-const httpClient;
-const fakeHttp;
+
+var mockCallback;
+var httpClient;
+var fakeHttp;
 
 require('../../../utils/polyfills')();
 

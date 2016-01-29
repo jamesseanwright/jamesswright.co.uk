@@ -1,10 +1,13 @@
-var jonathan = require('jonathan');
-var httpClient = require('../../../data/httpClient');
+'use strict';
+
+const jonathan = require('jonathan');
+const httpClient = require('../../../data/httpClient');
+const Repo = require('../../../models/gitHub/repo');
 
 describe('the GitHub model', function () {
 	describe('the data provider', function () {
 		var gitHubModel;
-		var mockJonathan = sinon.mock(jonathan);
+		const mockJonathan = sinon.mock(jonathan);
 
 		beforeEach(function () {
 			gitHubModel = require('../../../models/gitHub');
@@ -25,7 +28,7 @@ describe('the GitHub model', function () {
 		});
 
 		it('should retrieve repos from Jonathan if available', function () {
-			var expectedData = [{
+			const expectedData = [{
 				name: 'repo',
 				isFork: false
 			}];
@@ -41,12 +44,12 @@ describe('the GitHub model', function () {
 		});
 
 		it('should retrieve repos via HTTP and store them in Jonathan if needed', function () {
-			var expectedData = [{
+			const expectedData = [{
 				name: 'repo',
 				isFork: false
 			}];
 
-			var rawData = [{
+			const rawData = [{
 				name: 'repo',
 				fork: false,
 				created_at: 1
@@ -69,7 +72,7 @@ describe('the GitHub model', function () {
 		});
 
 		it('should be able to retrieve forks', function () {
-			var expectedData = [{
+			const expectedData = [{
 				name: 'repo',
 				isFork: true
 			}];
@@ -86,14 +89,8 @@ describe('the GitHub model', function () {
 	});
 
 	describe('the Repo model', function () {
-		var Repo;
-
-		beforeEach(function () {
-			Repo = require('../../../models/gitHub/repo');
-		});
-
 		it('should normalise repository data from GitHub', function () {
-			var rawData = {
+			const rawData = {
 				name: 'my repo',
 				html_url: 'http://stuff',
 				language: 'C#',

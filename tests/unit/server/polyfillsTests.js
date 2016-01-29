@@ -1,3 +1,5 @@
+'use strict';
+
 const polyfills = require('../../../utils/polyfills');
 const array = ['Bob', 'Greg'];
 

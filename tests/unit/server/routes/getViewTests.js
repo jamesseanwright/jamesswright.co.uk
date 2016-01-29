@@ -1,9 +1,12 @@
-var fs = require('fs');
+'use strict';
+
+const fs = require('fs');
+const fakeReq = { params: {} };
+const fakeRes = { status: function (code) {}, render: function (view, data) {} };
+const fakeMiddleware = { next: function (data) {} };
+const fakeViews = ['index.html', 'view1.html'];
+
 var getView;
-var fakeReq = { params: {} };
-var fakeRes = { status: function (code) {}, render: function (view, data) {} };
-var fakeMiddleware = { next: function (data) {} };
-var fakeViews = ['index.html', 'view1.html'];
 var mockRes;
 var mockMiddleware;
 

@@ -1,17 +1,17 @@
-var glob = require('glob');
-var jonathan = require('jonathan');
-var getBlogPost = require('../../../../routes/getBlogPost');
+'use strict';
 
-// these tests are dependent upon private methods and variables
-// need to determine how to expose them
+const glob = require('glob');
+const jonathan = require('jonathan');
+const getBlogPost = require('../../../../routes/getBlogPost');
+
 describe.skip('the getBlogPost route', function () {
-	var mockJonathan = sinon.mock(jonathan);
-	var response = {
+	const mockJonathan = sinon.mock(jonathan);
+	const response = {
 		render: function () {}
 	};
-	var mockResponse = sinon.mock(response);
-	var slug = 'slug';
-	var post = 'post';
+	const mockResponse = sinon.mock(response);
+	const slug = 'slug';
+	const post = 'post';
 
 	afterEach(function () {
 		mockJonathan.restore();
@@ -19,7 +19,7 @@ describe.skip('the getBlogPost route', function () {
 	});
 
 	it('should retrieve a post from Jonathan if possible', function () {
-		var request = {
+		const request = {
 			params: {
 				slug: slug
 			}

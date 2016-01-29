@@ -32,11 +32,11 @@ function makeRequest(url, method, data, headers) {
 }
 
 module.exports = {
-	get: function (url, headers) {
+	get(url, headers) {
 		return makeRequest(url);	
 	},
 
-	post: function (url, data) {
+	post(url, data) {
 		return makeRequest(url, 'post', data);	
 	}
 };
