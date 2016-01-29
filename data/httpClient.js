@@ -1,11 +1,12 @@
 'use strict';
 
-var INVALID_STATUS_CODES = ['4', '5'];
-var request = require('request');
+const INVALID_STATUS_CODES = ['4', '5'];
+const request = require('request');
 
+// TODO: make this testable like the blog model
 function makeRequest(url, method, data, headers) {
-	return new Promise(function (resolve, reject) {
-		var payload = {
+	return new Promise((resolve, reject) => {
+		const payload = {
 			url: url,
 			headers: {}
 		};
@@ -20,7 +21,7 @@ function makeRequest(url, method, data, headers) {
 
 		payload.headers['User-Agent'] = 'jamesswright.co.uk';
 
-		request[method || 'get'](payload, function (error, response, body) {
+		request[method || 'get'](payload, (error, response, body) => {
 			if (INVALID_STATUS_CODES.includes(response.statusCode.toString()[0])) {
 				reject(new Error(response.statusCode));
 			} else {

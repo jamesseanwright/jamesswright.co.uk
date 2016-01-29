@@ -1,19 +1,21 @@
 'use strict';
 
-var express = require('express');
-var swig = require('swig');
-var notifyValimate = require('valimate-notifier');
+const express = require('express');
+const swig = require('swig');
+const notifyValimate = require('valimate-notifier');
 
-var app = express();
+const app = express();
+const env = process.env.NODE_ENV || 'production';
+const getBlog = require('./routes/getBlog');
+const getBlogPost = require('./routes/getBlogPost');
+const getProjects = require('./routes/getProjects');
+const getView = require('./routes/getView');
+const setCacheHeaders = require('./routes/setCacheHeaders');
+const handleError = require('./routes/handleError');
+
+const IS_DEVELOPMENT = env === 'development';
+
 var server;
-var env = process.env.NODE_ENV || 'production';
-var getBlog = require('./routes/getBlog');
-var getBlogPost = require('./routes/getBlogPost');
-var getProjects = require('./routes/getProjects');
-var getView = require('./routes/getView');
-var setCacheHeaders = require('./routes/setCacheHeaders');
-var handleError = require('./routes/handleError');
-var isDevelopment = env === 'development';
 
 require('./init')();
 
@@ -23,12 +25,12 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
 swig.setDefaults({
-    cache: isDevelopment
+    cache: IS_DEVELOPMENT
         ? false
         : 'memory',
 
     locals: {
-        currentYear: function () {
+        currentYear: function getCurrentYear() {
             return new Date().getFullYear();
         }
     }
@@ -43,14 +45,14 @@ app.get('/:viewName?', getView);
 
 app.use(handleError);
 
-server = app.listen(process.env.PORT || 3000, function () {
+server = app.listen(process.env.PORT || 3000, function onBound() {
     console.log('Website running on port ' + server.address().port
         + '\nEnvironment: ' + env);
 
     notifyValimate(true);
 });
 
-process.on('SIGTERM', function () {
+process.on('SIGTERM', function die() {
     console.log('Ending server process...');
     server.close(function () {
         process.exit(0);

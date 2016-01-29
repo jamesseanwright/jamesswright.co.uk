@@ -1,8 +1,8 @@
-var nock = require('nock');
-var handler = { callback: function (data) { } };
-var mockCallback;
-var httpClient;
-var fakeHttp;
+const nock = require('nock');
+const handler = { callback: function (data) { } };
+const mockCallback;
+const httpClient;
+const fakeHttp;
 
 require('../../../utils/polyfills')();
 

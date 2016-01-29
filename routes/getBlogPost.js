@@ -1,10 +1,10 @@
 'use strict';
 
-var blogsModel = require('../models/blog');
+const blogsModel = require('../models/blog');
 
-module.exports = function (req, res, next) {
+module.exports = function getBlogPost(req, res, next) {
 	blogsModel.get(req.params.slug)
-		.then(function (post) {
+		.then(post => {
 			res.render('blog/post.html', {
 				title: post.title,
 				html: post.html

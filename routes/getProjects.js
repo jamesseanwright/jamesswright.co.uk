@@ -1,15 +1,15 @@
 'use strict';
 
-var gitHubModel = require('../models/gitHub');
+const gitHubModel = require('../models/gitHub');
 
-module.exports = function (req, res, next) {
-	var requests = [
+module.exports = function getProjects(req, res, next) {
+	const requests = [
 		gitHubModel.getRepos(),
 		gitHubModel.getForks()
 	];
 
 	return Promise.all(requests)
-		.then(function (responses) {
+		.then(responses => {
 			res.render('projects.html', {
 				repos: responses[0],
 				forks: responses[1]
