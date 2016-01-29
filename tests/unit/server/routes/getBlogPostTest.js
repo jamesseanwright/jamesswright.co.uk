@@ -37,7 +37,4 @@ describe.skip('the getBlogPost route', function () {
 		getBlogPost(request, response);
 		mockJonathan.verify();
 	});
-
-	it('should a 404 error if a post is not found');
-	it('should retrieve a post from the file system and cache it if needed');
 });
