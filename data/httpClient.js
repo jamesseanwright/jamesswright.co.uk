@@ -21,7 +21,7 @@ function makeRequest(url, method, data, headers) {
 			payload.headers = headers;
 		}
 
-		payload.headers['User-Agent'] = 
+		payload.headers['User-Agent'] = USER_AGENT;
 
 		request[method || 'get'](payload, (error, response, body) => {
 			if (INVALID_STATUS_CODES.includes(response.statusCode.toString()[0])) {
