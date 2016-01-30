@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	if (window.isAnalyticsDisabled) {
+	if (window.JW.isAnalyticsDisabled) {
 		return;
 	}
 

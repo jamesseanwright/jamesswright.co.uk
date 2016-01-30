@@ -30,8 +30,12 @@ swig.setDefaults({
         : 'memory',
 
     locals: {
-        currentYear: function getCurrentYear() {
+        currentYear() {
             return new Date().getFullYear();
+        },
+
+        isAnalyticsDisabled() {
+            return IS_DEVELOPMENT;
         }
     }
 });
@@ -54,6 +58,7 @@ server = app.listen(process.env.PORT || 3000, function onBound() {
 
 process.on('SIGTERM', function die() {
     console.log('Ending server process...');
+
     server.close(function () {
         process.exit(0);
     });

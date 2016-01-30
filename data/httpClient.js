@@ -1,7 +1,9 @@
 'use strict';
 
-const INVALID_STATUS_CODES = ['4', '5'];
 const request = require('request');
+
+const INVALID_STATUS_CODES = ['4', '5'];
+const USER_AGENT = 'jamesswright.co.uk';
 
 // TODO: make this testable like the blog model
 function makeRequest(url, method, data, headers) {
@@ -19,7 +21,7 @@ function makeRequest(url, method, data, headers) {
 			payload.headers = headers;
 		}
 
-		payload.headers['User-Agent'] = 'jamesswright.co.uk';
+		payload.headers['User-Agent'] = 
 
 		request[method || 'get'](payload, (error, response, body) => {
 			if (INVALID_STATUS_CODES.includes(response.statusCode.toString()[0])) {

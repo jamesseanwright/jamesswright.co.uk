@@ -5,6 +5,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>James Wright - {% block title %}Software Developer{% endblock %}</title>
 		<link rel="stylesheet" href="/stylesheets/main.min.css" />
+
+		<script>
+			(function () {
+				'use strict';
+
+				window.JW = {
+					isAnalyticsDisabled: {{ isAnalyticsDisabled() }}
+				};
+			}());
+		</script>
+		
 		<script src="/javascripts/main.min.js"></script>
 	</head>
 	<body>

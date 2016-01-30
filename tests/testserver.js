@@ -1,9 +1,9 @@
 'use strict';
 
-var express = require('express');
-var swig = require('swig');
-var app = express();
-var server;
+const express = require('express');
+const swig = require('swig');
+const app = express();
+const server;
 
 app.use(express.static(__dirname + '/../public'));
 app.use(express.static(__dirname + '/../tests/unit/client'));
