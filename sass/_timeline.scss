@@ -2,15 +2,6 @@ $lineWeight: 3px;
 $border: $lineWeight solid #303030;
 
 .timeline {
-	.timeline__year {
-		display: none;
-	}
-
-	.timeline__year:first-child,
-	.timeline__year:nth-child(2) {
-		display: block;
-	}
-
 	.timeline__year-label {
 		margin-top: 30px;
 	}
@@ -55,7 +46,6 @@ $border: $lineWeight solid #303030;
 		}
 
 		.timeline__year {
-			display: block;
 			position: relative;
 
 

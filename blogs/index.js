@@ -1,12 +1,19 @@
 'use strict';
 
 module.exports = [
-  {
-    title: 'Automated HTML Validation with Node.js and Valimate',
-    date: '21st January 2016',
-    description: 'An Node.js CLI for automating HTML validation.',
-    slug: '1453399-automated-html-validation-valimate'
-  },
+	{
+		title: 'Elemental Entropy - My JS1k 2016 Entry',
+		date: '12th March 2016',
+		description: 'An extremely minified canvas game.',
+		slug: '1457802-elemental-entropy-js1k-entry'
+	},
+	
+	{
+		title: 'Automated HTML Validation with Node.js and Valimate',
+		date: '21st January 2016',
+		description: 'An Node.js CLI for automating HTML validation.',
+		slug: '1453399-automated-html-validation-valimate'
+	},
 
 	{
 		title: 'Time Worm! - My js13kGames 2015 Entry',
