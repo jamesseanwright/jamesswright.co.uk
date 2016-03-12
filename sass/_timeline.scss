@@ -30,10 +30,6 @@ $border: $lineWeight solid #303030;
 		margin-top: 1em;
 	}
 
-	.timeline__external-link { 
-		@extend .material-container;
-	}
-
 	.timeline__item-description {
 		p:last-child {
 			margin-bottom: 0;
@@ -80,10 +76,6 @@ $border: $lineWeight solid #303030;
 
 		.timeline__item {
 			margin-bottom: 20px;
-		}
-
-		.timeline__external-link {
-			display: none;
 		}
 	}
 }
