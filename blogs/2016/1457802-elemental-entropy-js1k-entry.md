@@ -4,7 +4,7 @@
 
 <img src="https://raw.githubusercontent.com/jamesseanwright/elemental-entropy/master/screenshot.jpeg" alt="Time Worm! Screenshot" class="blog-post__image--primary" />
 
-If you've previously visited my blog, you might be aware that [I entered last year's js13kGames contest](/blog/1442177-time-worm-js13kgames-entry). Since then, I've been exploring games and application development with HTML5 canvas, so I entered this year's [JS1k contest](http://js1k.com/2016-elemental/). The aim is along the same lines as js13kGames, except that technical demons are also accepted, and that submissions can not exceed 1024 bytes. And I remember complaining that 13 KB was small!
+If you've previously visited my blog, you might be aware that [I entered last year's js13kGames contest](/blog/1442177-time-worm-js13kgames-entry). Since then, I've been exploring games and application development with HTML5 canvas, so I entered this year's [JS1k contest](http://js1k.com/2016-elemental/). The aim is along the same lines as js13kGames, except that technical demos are also accepted, and that submissions can not exceed 1024 bytes. And I remember complaining that 13 KB was small!
 
 Given the theme this year is "EleMental" (yep, with that casing too!), I wrote a 2D canvas game called [Elemental Entropy](http://js1k.com/2016-elemental/demo/2511), in which the player rotates a shield around an oxygen particle to protect it from heat and fuel particles (because science is that fundamental, right?!). I also managed to squeeze in some very basic audio thanks to the Web Audio API's [`OscillatorNode`](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode) interface.
 

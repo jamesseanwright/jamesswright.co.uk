@@ -46,7 +46,7 @@ module.exports = [
 	{
 		title: 'Running ASP.NET vNext on Ubuntu',
 		date: '6th January 2015',
-		description: '.NET has a multi-platform compiler and a new home on GitHub. The upcoming version of ASP.NET follows suite, and it’s awesome.',
+		description: '.NET has a multi-platform compiler and a new home on GitHub. The upcoming version of ASP.NET follows suit, and it’s awesome.',
 		slug: '1420502-asp-net-vnext-ubuntu'
 	},
 
