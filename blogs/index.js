@@ -2,6 +2,13 @@
 
 module.exports = [
 	{
+		title: 'Developing UWP Apps for Xbox One',
+		date: '2nd May 2016',
+		description: 'Dusting off my XAML skills on a next-gen machine.',
+		slug: '1462207-developing-uwp-apps-xbox-one'
+	},
+	
+	{
 		title: 'Elemental Entropy - My JS1k 2016 Entry',
 		date: '12th March 2016',
 		description: 'An extremely minified canvas game.',
