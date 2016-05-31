@@ -3,9 +3,7 @@
 const express = require('express');
 const swig = require('swig');
 const notifyValimate = require('valimate-notifier');
-const fs = require('fs');
 const http = require('http');
-const https = require('https');
 
 const app = express();
 const env = process.env.NODE_ENV || 'production';
@@ -15,12 +13,6 @@ const getProjects = require('./routes/getProjects');
 const getView = require('./routes/getView');
 const setCacheHeaders = require('./routes/setCacheHeaders');
 const handleError = require('./routes/handleError');
-
-const sslConfig = {
-	key: fs.readFileSync('ssl/privkey.pem'),
-	cert: fs.readFileSync('ssl/fullchain.pem'),
-	ca: fs.readFileSync('ssl/chain.pem'),
-};
 
 const IS_DEVELOPMENT = env !== 'production';
 
@@ -61,7 +53,7 @@ app.get('/:viewName?', getView);
 
 app.use(handleError);
 
-const server = IS_DEVELOPMENT ? http.createServer(app) : http.createServer(app);
+const server = http.createServer(app);
 
 server.listen(process.env.PORT || 3001, function onBound() {
 	console.log('Website running on port ' + server.address().port
