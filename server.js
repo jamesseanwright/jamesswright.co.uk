@@ -71,19 +71,19 @@ server.listen(process.env.PORT || 3000, function onBound() {
 	notifyValimate(true);
 });
 
-// if (!IS_DEVELOPMENT) {
-// 	const httpRedirectServer = http.createServer(redirectToHttps);	
+if (!IS_DEVELOPMENT) {
+	const httpRedirectServer = http.createServer(redirectToHttps);	
 	
-// 	httpRedirectServer.listen(process.env.HTTP_PORT || 3001, function onHttpBound() {
-// 		console.log('HTTP redirect server running on port ' + httpRedirectServer.address().port);
-// 	});
+	httpRedirectServer.listen(process.env.HTTP_PORT || 3001, function onHttpBound() {
+		console.log('HTTP redirect server running on port ' + httpRedirectServer.address().port);
+	});
 	
-// 	process.on('SIGTERM', function killHttpRedirect() {
-// 		console.log('Ending HTTP redirect server...');
+	process.on('SIGTERM', function killHttpRedirect() {
+		console.log('Ending HTTP redirect server...');
 
-// 		httpRedirectServer.close();
-// 	});
-// }
+		httpRedirectServer.close();
+	});
+}
 
 process.on('SIGTERM', function die() {
 	console.log('Ending server process...');
