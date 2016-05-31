@@ -47,6 +47,10 @@ app.get('/blog', getBlog);
 app.get('/blog/:slug', getBlogPost);
 app.get('/:viewName?', getView);
 
+app.get('/.well-known/acme-challenge/aiyvO0tnY25eFTsP_j9AHe4HscWGBq4oP6fX5WjvWX0.XAHUidcd2vu5uo7jdxzAt2C0vXDscTL', (req, res) => {
+   res.end('aiyvO0tnY25eFTsP_j9AHe4HscWGBq4oP6fX5WjvWX0.XAHUidcd2vu5uo7jdxzAt2C0vXDscTL'); 
+});
+
 app.use(handleError);
 
 server = app.listen(process.env.PORT || 3000, function onBound() {
