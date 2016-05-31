@@ -61,7 +61,7 @@ app.get('/:viewName?', getView);
 
 app.use(handleError);
 
-const server = IS_DEVELOPMENT ? http.createServer(app) : https.createServer(sslConfig, app);
+const server = IS_DEVELOPMENT ? http.createServer(app) : http.createServer(app);
 
 server.listen(process.env.PORT || 3001, function onBound() {
 	console.log('Website running on port ' + server.address().port
