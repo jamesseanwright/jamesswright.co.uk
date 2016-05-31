@@ -64,7 +64,7 @@ app.use(handleError);
 
 const server = IS_DEVELOPMENT ? http.createServer(app) : https.createServer(sslConfig, app);
 
-server.listen(process.env.PORT || 3000, function onBound() {
+server.listen(3001, function onBound() {
 	console.log('Website running on port ' + server.address().port
 		+ '\nEnvironment: ' + env);
 
@@ -74,7 +74,7 @@ server.listen(process.env.PORT || 3000, function onBound() {
 if (!IS_DEVELOPMENT) {
 	const httpRedirectServer = http.createServer(redirectToHttps);	
 	
-	httpRedirectServer.listen(process.env.HTTP_PORT || 3001, function onHttpBound() {
+	httpRedirectServer.listen(process.env.PORT || 3000, function onHttpBound() {
 		console.log('HTTP redirect server running on port ' + httpRedirectServer.address().port);
 	});
 	
