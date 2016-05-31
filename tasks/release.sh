@@ -20,6 +20,7 @@ cp -R ../public .
 cp -R ../routes .
 cp -R ../utils .
 cp -R ../views .
+cp -R ../ssl .
 
 rm -rf public/vendor
 
