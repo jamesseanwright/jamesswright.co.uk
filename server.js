@@ -41,8 +41,14 @@ swig.setDefaults({
 });
 
 app.use((req, res, next) => {
-	console.log(`${req.url} requested`);
+	console.log(`${new Date()} - ${req.url} requested`);
 	next();
+});
+
+app.get('.well-known/acme-challenge/zV3BgsYZeDV726wrneTdUI7jxqilzQVLBFKTCwFf7Xo', (req, res, next) {
+	res.writeHead(200, { 'Content-Type': 'text/plain' });
+	
+	res.end('zV3BgsYZeDV726wrneTdUI7jxqilzQVLBFKTCwFf7Xo.XAHUidcd2vu5uo7jdxzAt2C0vXDscTLTFSf6iHE0kWY');
 });
 
 if (!IS_DEVELOPMENT) {
