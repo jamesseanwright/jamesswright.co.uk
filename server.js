@@ -3,6 +3,9 @@
 const express = require('express');
 const swig = require('swig');
 const notifyValimate = require('valimate-notifier');
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
 
 const app = express();
 const env = process.env.NODE_ENV || 'production';
@@ -11,11 +14,16 @@ const getBlogPost = require('./routes/getBlogPost');
 const getProjects = require('./routes/getProjects');
 const getView = require('./routes/getView');
 const setCacheHeaders = require('./routes/setCacheHeaders');
+const redirectToHttps = require('./routes/redirectToHttps');
 const handleError = require('./routes/handleError');
 
-const IS_DEVELOPMENT = env === 'development';
+const sslConfig = {
+	key: fs.readFileSync('ssl/privkey.pem'),
+	cert: fs.readFileSync('ssl/fullchain.pem'),
+	ca: fs.readFileSync('ssl/chain.pem'),
+};
 
-var server;
+const IS_DEVELOPMENT = env !== 'development';
 
 require('./init')();
 
@@ -25,20 +33,21 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
 swig.setDefaults({
-    cache: IS_DEVELOPMENT
-        ? false
-        : 'memory',
+	cache: IS_DEVELOPMENT
+		? false
+		: 'memory',
 
-    locals: {
-        currentYear() {
-            return new Date().getFullYear();
-        },
+	locals: {
+		currentYear() {
+			return new Date().getFullYear();
+		},
 
-        isAnalyticsDisabled() {
-            return IS_DEVELOPMENT;
-        }
-    }
+		isAnalyticsDisabled() {
+			return IS_DEVELOPMENT;
+		}
+	}
 });
+
 
 app.use(setCacheHeaders);
 
@@ -47,23 +56,37 @@ app.get('/blog', getBlog);
 app.get('/blog/:slug', getBlogPost);
 app.get('/:viewName?', getView);
 
-app.get('/.well-known/acme-challenge/musrieloUSFtQeDR5kuyi3ZLt5A0sQIkyzyu2UmFeJ0', (req, res) => {
-   res.end('musrieloUSFtQeDR5kuyi3ZLt5A0sQIkyzyu2UmFeJ0.XAHUidcd2vu5uo7jdxzAt2C0vXDscTLTFSf6iHE0kWY'); 
-});
-
 app.use(handleError);
 
-server = app.listen(process.env.PORT || 3000, function onBound() {
-    console.log('Website running on port ' + server.address().port
-        + '\nEnvironment: ' + env);
+const server = IS_DEVELOPMENT ? http.createServer(app) : https.createServer(sslConfig, app);
 
-    notifyValimate(true);
+server.listen(process.env.PORT || 3000, function onBound() {
+	console.log('Website running on port ' + server.address().port
+		+ '\nEnvironment: ' + env);
+
+	notifyValimate(true);
 });
 
-process.on('SIGTERM', function die() {
-    console.log('Ending server process...');
+if (!IS_DEVELOPMENT) {
+	const httpRedirectServer = http.createServer(redirectToHttps);	
+	
+	httpRedirectServer.listen(process.env.HTTP_PORT || 3001, function onHttpBound() {
+		console.log('HTTP redirect server running on port ' + httpRedirectServer.address().port);
+	});
+	
+	process.on('SIGTERM', function killHttpRedirect() {
+		console.log('Ending HTTP redirect server...');
 
-    server.close(function () {
-        process.exit(0);
-    });
+		httpRedirectServer.close(() => {
+			process.exit(0);
+		});
+	});
+}
+
+process.on('SIGTERM', function die() {
+	console.log('Ending server process...');
+
+	server.close(() => {
+		process.exit(0);
+	});
 });

@@ -21,4 +21,4 @@ kill $NODE_PID
 
 checkForFailure
 
-valimate
+NODE_ENV=test valimate
