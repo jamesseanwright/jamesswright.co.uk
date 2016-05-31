@@ -23,7 +23,7 @@ const sslConfig = {
 	ca: fs.readFileSync('ssl/chain.pem'),
 };
 
-const IS_DEVELOPMENT = env !== 'development';
+const IS_DEVELOPMENT = env !== 'production';
 
 require('./init')();
 
@@ -77,9 +77,7 @@ if (!IS_DEVELOPMENT) {
 	process.on('SIGTERM', function killHttpRedirect() {
 		console.log('Ending HTTP redirect server...');
 
-		httpRedirectServer.close(() => {
-			process.exit(0);
-		});
+		httpRedirectServer.close();
 	});
 }
 
