@@ -12,6 +12,7 @@ const getBlogPost = require('./routes/getBlogPost');
 const getProjects = require('./routes/getProjects');
 const getView = require('./routes/getView');
 const setCacheHeaders = require('./routes/setCacheHeaders');
+const redirectToHttps = require('./routes/redirectToHttps');
 const handleError = require('./routes/handleError');
 
 const IS_DEVELOPMENT = env !== 'production';
@@ -44,6 +45,10 @@ app.use((req, res, next) => {
 	next();
 });
 
+if (!IS_DEVELOPMENT) {
+	app.use(redirectToHttps);
+}
+
 app.use(setCacheHeaders);
 
 app.get('/projects', getProjects);
@@ -55,7 +60,7 @@ app.use(handleError);
 
 const server = http.createServer(app);
 
-server.listen(process.env.PORT || 3001, function onBound() {
+server.listen(process.env.PORT || 3000, function onBound() {
 	console.log('Website running on port ' + server.address().port
 		+ '\nEnvironment: ' + env);
 
