@@ -64,7 +64,7 @@ app.use(handleError);
 
 const server = IS_DEVELOPMENT ? http.createServer(app) : https.createServer(sslConfig, app);
 
-server.listen(3001, function onBound() {
+server.listen(process.env.HTTPS_PORT || 3001, function onBound() {
 	console.log('Website running on port ' + server.address().port
 		+ '\nEnvironment: ' + env);
 
