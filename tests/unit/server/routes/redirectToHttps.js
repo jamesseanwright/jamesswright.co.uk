@@ -19,7 +19,10 @@ describe('the HTTPS redirect middleware', function () {
 	
 	it('should redirect HTTP requests', function () {
 		const req = {
-			protocol: 'http',
+			headers: {
+				'x-forwarded-proto': 'http'
+			},
+			
 			hostname: 'jamesswright.co.uk',
 			url: '/?foo=bar'
 		}
@@ -35,7 +38,10 @@ describe('the HTTPS redirect middleware', function () {
 	
 	it('should not redirect HTTPS requests', function () {
 		const req = {
-			protocol: 'https',
+			headers: {
+				'x-forwarded-proto': 'https'
+			},
+			
 			hostname: 'jamesswright.co.uk',
 			url: '/?foo=bar'
 		}
