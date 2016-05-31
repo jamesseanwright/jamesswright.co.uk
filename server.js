@@ -14,7 +14,6 @@ const getBlogPost = require('./routes/getBlogPost');
 const getProjects = require('./routes/getProjects');
 const getView = require('./routes/getView');
 const setCacheHeaders = require('./routes/setCacheHeaders');
-const redirectToHttps = require('./routes/redirectToHttps');
 const handleError = require('./routes/handleError');
 
 const sslConfig = {
@@ -70,20 +69,6 @@ server.listen(process.env.PORT || 3001, function onBound() {
 
 	notifyValimate(true);
 });
-
-// if (!IS_DEVELOPMENT) {
-// 	const httpRedirectServer = http.createServer(redirectToHttps);	
-	
-// 	httpRedirectServer.listen(process.env.PORT || 3000, function onHttpBound() {
-// 		console.log('HTTP redirect server running on port ' + httpRedirectServer.address().port);
-// 	});
-	
-// 	process.on('SIGTERM', function killHttpRedirect() {
-// 		console.log('Ending HTTP redirect server...');
-
-// 		httpRedirectServer.close();
-// 	});
-// }
 
 process.on('SIGTERM', function die() {
 	console.log('Ending server process...');
