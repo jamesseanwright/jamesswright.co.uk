@@ -51,6 +51,7 @@ swig.setDefaults({
 console.log((req, res, next) => {
 	console.log(`${req.url} requested`);
 	next();
+	
 })
 
 app.use(setCacheHeaders);
