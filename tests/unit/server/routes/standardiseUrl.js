@@ -1,8 +1,8 @@
 'use strict';
 
-const redirectToHttps = require('../../../../routes/redirectToHttps');
+const standardiseUrl = require('../../../../routes/standardiseUrl');
 
-describe('the HTTPS redirect middleware', function () {
+describe('the URL standardisation middleware', function () {
 	const res = {
 		redirect() {}
 	};
@@ -31,12 +31,31 @@ describe('the HTTPS redirect middleware', function () {
 			   .once()
 			   .withArgs(301, 'https://jamesswright.co.uk/?foo=bar');
 			   
-		redirectToHttps(req, res, () => {});
+		standardiseUrl(req, res, () => {});
 		
 		mockRes.verify();
 	});
 	
-	it('should not redirect HTTPS requests', function () {
+	it('should redirect WWW requests', function () {
+		const req = {
+			headers: {
+				'x-forwarded-proto': 'https'
+			},
+			
+			hostname: 'www.jamesswright.co.uk',
+			url: '/?foo=bar'
+		}
+		
+		mockRes.expects('redirect')
+			   .once()
+			   .withArgs(301, 'https://jamesswright.co.uk/?foo=bar');
+			   
+		standardiseUrl(req, res, () => {});
+		
+		mockRes.verify();
+	});
+	
+	it('should not redirect non-WWW requests', function () {
 		const req = {
 			headers: {
 				'x-forwarded-proto': 'https'
@@ -49,7 +68,7 @@ describe('the HTTPS redirect middleware', function () {
 		mockRes.expects('redirect')
 			   .never();
 			   
-		redirectToHttps(req, res, () => {});
+		standardiseUrl(req, res, () => {});
 		
 		mockRes.verify();
 	});
