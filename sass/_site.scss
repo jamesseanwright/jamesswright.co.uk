@@ -96,6 +96,7 @@ header {
 
 section[role="main"] {
 	@include material-shadow;
+	@include clearfix;
 	padding: 10px;
 	background: white;
 	max-width: $max-width;
@@ -109,4 +110,16 @@ section[role="main"] {
 
 .html5-logo {
 	height: 48px;
+}
+
+.my-photo {
+	display: none;
+	float: left;
+	margin-right: 10px;
+	-webkit-clip-path: circle();
+	clip-path: circle();
+
+	@include respond-min($m) {
+		display: block;
+	}
 }

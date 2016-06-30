@@ -16,9 +16,7 @@ $max-width: 1280px;
 }
 
 @mixin clearfix {
-	content: "";
-	display: table;
-	clear: both;
+	overflow: hidden;
 }
 
 @mixin content {
