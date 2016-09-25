@@ -2,6 +2,13 @@
 
 module.exports = [
 	{
+		title: 'You Ain\'t Heard Nothing Yet!',
+		date: '25th September 2016',
+		description: 'A 5-Part Screencast Series on the Web Audio API.',
+		slug: '1474804-web-audio-screencast-series'
+	},
+	
+	{
 		title: 'Developing UWP Apps for Xbox One',
 		date: '2nd May 2016',
 		description: 'Dusting off my XAML skills on a next-gen machine.',
