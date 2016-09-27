@@ -2,6 +2,13 @@
 
 module.exports = [
 	{
+		title: 'Glitch Hunt - My js13kGames 2016 Entry',
+		date: '27th September 2016',
+		description: 'Time for round 2...',
+		slug: '1474997-glitch-hunt-js13kgames-2016'
+	},
+
+	{
 		title: 'You Ain\'t Heard Nothing Yet!',
 		date: '25th September 2016',
 		description: 'A 5-Part Screencast Series on the Web Audio API.',
