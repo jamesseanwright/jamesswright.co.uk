@@ -10,3 +10,4 @@ log
 public/stylesheets/
 dist/
 .openshift/
+.DS_Store
