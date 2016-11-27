@@ -7,6 +7,7 @@ const http = require('http');
 
 const app = express();
 const env = process.env.NODE_ENV || 'production';
+const getAcmeKeyAuth = require('./routes/getAcmeKeyAuth');
 const getBlog = require('./routes/getBlog');
 const getBlogPost = require('./routes/getBlogPost');
 const getProjects = require('./routes/getProjects');
@@ -16,6 +17,7 @@ const standardiseUrl = require('./routes/standardiseUrl');
 const handleError = require('./routes/handleError');
 
 const IS_DEVELOPMENT = env !== 'production';
+const IS_ACME_ENABLED = process.env.IS_ACME_ENABLED === 'true';
 
 require('./init')();
 
@@ -44,6 +46,12 @@ app.use((req, res, next) => {
 	console.log(`${new Date()} - ${req.url} requested`);
 	next();
 });
+
+/* Register here so that ACME challenges
+ * are notredirected to HTTP. */
+if (IS_ACME_ENABLED) {
+	app.get('/.well-known/acme-challenge/:token', getAcmeKeyAuth);
+}
 
 if (!IS_DEVELOPMENT) {
 	app.use(standardiseUrl);
