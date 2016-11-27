@@ -24,12 +24,6 @@ cp -R ../ssl .
 
 rm -rf public/vendor
 
-# I'm think Heroku keeps restoring my dev .gitignore!
-if [ -e .gitignore ]
-then
-  rm .gitignore
-fi
-
 git add -A
 git commit -m "Release"
 git push origin master
