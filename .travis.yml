@@ -2,21 +2,3 @@ language: node_js
 node_js:
   - 4
 install: "./tasks/pre-test.sh"
-after_success: "./tasks/post-test.sh && ./tasks/dist.sh && cd dist"
-deploy:
-  - provider: appfog
-    email: jamesseanwright@gmail.com
-    app: jameswright
-    password:
-      secure: CMTuF11s27GOLdNBFnFv3fAaymiY9Klx2oPrr3mC/gqV47myVvqvEPFidgmBkHjP/kRMMES8H0n4TquSxJ8aprgZpOlad9KW9HUJH745L2AA4rUSMZ68piEMK39Mu+iQFUTlUaRzFFSD8iDtwzvBGalkon+ZA8TtJp1UHlwePZo=
-    on:
-      branch: development
-    skip_cleanup: true
-  - provider: appfog
-    email: jamesseanwright@gmail.com
-    app: jameswright
-    password:
-      secure: CMTuF11s27GOLdNBFnFv3fAaymiY9Klx2oPrr3mC/gqV47myVvqvEPFidgmBkHjP/kRMMES8H0n4TquSxJ8aprgZpOlad9KW9HUJH745L2AA4rUSMZ68piEMK39Mu+iQFUTlUaRzFFSD8iDtwzvBGalkon+ZA8TtJp1UHlwePZo=
-    on:
-      branch: development
-    skip_cleanup: true
