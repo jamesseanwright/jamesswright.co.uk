@@ -19,7 +19,6 @@
     "chai-as-promised": "4.1.1",
     "mocha": "2.0.1",
     "nock": "0.52.4",
-    "phantomjs": "1.9.13",
     "sinon": "1.12.2"
   },
   "scripts": {
