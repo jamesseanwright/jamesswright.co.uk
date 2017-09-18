@@ -26,12 +26,12 @@ module.exports = {
 			.then(markdown => this._buildPost(slug, markdown))
 			.then(post => this._cachePost(key, post));
 	},
-	
+
 	_getContent(slug) {
 		return this._findFileBySlug(slug)
 				   .then(this._readFile);
 	},
-	
+
 	_findFileBySlug(slug) {
 		return new Promise((resolve, reject) => {
 			glob(`blogs/**/${slug}.md`, (error, files) => {
@@ -45,7 +45,7 @@ module.exports = {
 			});
 		});
 	},
-	
+
 	_readFile(file) {
 		return new Promise((resolve, reject) => {
 			fs.readFile(file, function (error, content) {
@@ -57,24 +57,24 @@ module.exports = {
 			});
 		});
 	},
-	
+
 	_convert(markdown) {
 		return Promise.resolve(converter.makeHtml(markdown.toString()));
 	},
-	
+
 	_buildPost(slug, html) {
 		const post = {
 			title: this._getTitle(slug),
-			html: html
+			html
 		};
 
 		return post;
 	},
-	
+
 	_getTitle(slug) {
 		return this.getAll().find(post => post.slug === slug).title;
 	},
-	
+
 	_cachePost(key, post) {
 		jonathan.add(key, post);
 		return post;
