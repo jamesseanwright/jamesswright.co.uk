@@ -9,6 +9,6 @@
 		"views"
 	],
 	"events": {
-		"restart": "./tasks/build-js"
+		"restart": "./tasks/build-js.sh"
 	}
 }

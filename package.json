@@ -21,7 +21,11 @@
     "jsdom": "11.2.0",
     "mocha": "2.0.1",
     "nock": "0.52.4",
-    "sinon": "1.12.2"
+    "node-sass": "4.5.3",
+    "nodemon": "1.12.1",
+    "sinon": "1.12.2",
+    "uglifyify": "4.0.3",
+    "valimate": "2.3.0"
   },
   "scripts": {
     "dev": "./tasks/dev.sh",

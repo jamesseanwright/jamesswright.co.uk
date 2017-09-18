@@ -6,4 +6,4 @@ module.exports = function createMenu() {
 	const menuButton = menu.querySelector('.menu__show');
 
 	menuButton.onclick = () => menuItems.classList.toggle('menu__items--active');
-}
+};

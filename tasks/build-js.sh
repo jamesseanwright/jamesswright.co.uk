@@ -4,4 +4,4 @@ if [ ! -d public/javascripts ]
     mkdir public/javascripts
 fi
 
-uglifyjs --compress --screw-ie8 --output public/javascripts/main.min.js -- clientjs/*
+./node_modules/.bin/browserify -t uglifyify --outfile public/javascripts/main.min.js clientjs/index.js
