@@ -1,23 +1,4 @@
-#! /bin/bash
-# Runs server and client-side unit tests
+#!/usr/bin/env sh
 
-function checkForFailure {
-    if [ $? -ne 0 ]
-    then
-        exit $?
-    fi
-}
-
-
-mocha tests/unit/server/*
-
-checkForFailure
-
-NODE_ENV=test node tests/testserver.js &
-NODE_PID=$!
-trap "kill NODE_PID" SIGTERM SIGKILL
-kill $NODE_PID
-
-checkForFailure
-
+mocha tests/unit/**/*Tests.js --require tests/unit/init
 NODE_ENV=test valimate

@@ -1,10 +1,28 @@
 'use strict';
 
-describe('the menu tests', function () {
-	var menuElement;
+const createMenu = require('../../../clientjs/menu');
 
-	before(function () {
-		menuElement = scratchpad.querySelector('.menu');
+const createMenuMarkup = () => `
+	<nav class="menu">
+		<button class="menu__show" aria-hidden="true">Menu</button>
+
+		<ul class="menu__items">
+			<li class="menu__item"><a href="/">Home</a></li>
+		</ul>
+	</nav>
+`;
+
+describe('the menu tests', function () {
+	let menuElement;
+
+	beforeEach(function () {
+		createDom(createMenuMarkup());
+		createMenu();
+		menuElement = document.body.querySelector('.menu');
+	});
+
+	afterEach(function () {
+		destroyDom();
 	});
 
 	it('should display the menu when the button is clicked', function () {
@@ -13,6 +31,7 @@ describe('the menu tests', function () {
 	});
 
 	it('should hide the menu when the button is clicked again', function () {
+		menuElement.querySelector('.menu__show').click();
 		menuElement.querySelector('.menu__show').click();
 		menuElement.querySelector('.menu__items').classList.contains('menu__items--active').should.be.false;
 	});

@@ -1,18 +1,9 @@
-(function () {
-	'use strict';
+'use strict';
 
-	var menu
-	var menuItems;
-	var menuButton;
+module.exports = function createMenu() {
+	const menu = document.body.querySelector('.menu');
+	const menuItems = menu.querySelector('.menu__items');
+	const menuButton = menu.querySelector('.menu__show');
 
-	document.addEventListener('DOMContentLoaded', function domReady() {
-		menu = document.querySelector('.menu');
-		menuItems = menu.querySelector('.menu__items');
-		menuButton = menu.querySelector('.menu__show');
-		menuButton.onclick = toggleMenu;
-	});
-
-	function toggleMenu() {
-		menuItems.classList.toggle('menu__items--active');
-	}
-}());
+	menuButton.onclick = () => menuItems.classList.toggle('menu__items--active');
+}
