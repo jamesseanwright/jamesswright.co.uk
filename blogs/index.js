@@ -2,6 +2,13 @@
 
 module.exports = [
 	{
+		title: 'Year in Review',
+		date: '31st December 2017',
+		description: 'My first and last blog entry of 2017.',
+		slug: '1514671-year-in-review'
+	},
+
+	{
 		title: 'Glitch Hunt - My js13kGames 2016 Entry',
 		date: '27th September 2016',
 		description: 'Time for round 2...',
@@ -14,21 +21,21 @@ module.exports = [
 		description: 'A 5-Part Screencast Series on the Web Audio API.',
 		slug: '1474804-web-audio-screencast-series'
 	},
-	
+
 	{
 		title: 'Developing UWP Apps for Xbox One',
 		date: '2nd May 2016',
 		description: 'Dusting off my XAML skills on a next-gen machine.',
 		slug: '1462207-developing-uwp-apps-xbox-one'
 	},
-	
+
 	{
 		title: 'Elemental Entropy - My JS1k 2016 Entry',
 		date: '12th March 2016',
 		description: 'An extremely minified canvas game.',
 		slug: '1457802-elemental-entropy-js1k-entry'
 	},
-	
+
 	{
 		title: 'Automated HTML Validation with Node.js and Valimate',
 		date: '21st January 2016',
