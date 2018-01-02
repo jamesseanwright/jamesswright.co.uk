@@ -47,7 +47,7 @@ I spent most of this year volunteering at [CodeYourFuture](https://codeyourfutur
 
 ### Open-Source Projects
 
-Between all of this, I somehow found to time to contribute to and author some open-source projects.
+Between all of this, I somehow found the time to contribute to and author some open-source projects.
 
 #### Request
 
