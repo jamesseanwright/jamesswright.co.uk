@@ -1,7 +1,15 @@
-import { serve, ServerRequest } from "https://deno.land/std@v0.23.0/http/server.ts";
-import { createRouter, createRouteMap, textResponse, NotFoundError } from "./deps.ts";
+import {
+  serve,
+  ServerRequest
+} from "https://deno.land/std@v0.23.0/http/server.ts";
+import {
+  createRouter,
+  createRouteMap,
+  textResponse,
+  NotFoundError
+} from "./deps.ts";
 
-const PORT = '8002';
+const PORT = "8002";
 
 const formatDate = (date: Date) =>
   date.toLocaleDateString("en-GB", {
@@ -34,13 +42,14 @@ const onError = (e: Error) => {
 
 const router = createRouter(
   createRouteMap([
-    ["/", () => textResponse(
-      "<p>Hello world!</p>",
-      {
-        "Content-Type": "text/html",
-      }
-    )]
-  ]),
+    [
+      "/",
+      () =>
+        textResponse("<p>Hello world!</p>", {
+          "Content-Type": "text/html"
+        })
+    ]
+  ])
 );
 
 (async () => {
