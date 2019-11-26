@@ -7,7 +7,7 @@ import {
   createRouteMap,
   textResponse,
   NotFoundError
-} from "./deps.ts";
+} from "../deps.ts";
 
 const PORT = "8002";
 
